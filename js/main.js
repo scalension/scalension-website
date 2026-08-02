@@ -128,34 +128,98 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ─── Career forms (teach + build) ──────── */
-  ['teach-form', 'build-form'].forEach(formId => {
-    const careerForm = document.getElementById(formId);
-    if (!careerForm) return;
+  /* ─── Unified Career Form Logic ────────────── */
+  const unifiedForm   = document.getElementById('unified-application-form');
+  const roleSelect    = document.getElementById('app-role');
+  const skillsLabel   = document.getElementById('skills-label-text');
+  const skillsInput   = document.getElementById('app-skills');
+  const cvFileInput   = document.getElementById('app-cv-file');
+  const cvUploadBox   = document.getElementById('file-upload-box');
+  const cvUploadText  = document.getElementById('file-upload-text');
+  const cvRemoveBtn   = document.getElementById('file-remove-btn');
 
-    careerForm.addEventListener('submit', e => {
+  // Dynamic Role Selection adjustments
+  if (roleSelect) {
+    roleSelect.addEventListener('change', () => {
+      const roleVal = roleSelect.value;
+      if (roleVal.includes('Educator') || roleVal.includes('Mentor')) {
+        if (skillsLabel) skillsLabel.textContent = 'Teaching Subject / Areas of Expertise';
+        if (skillsInput) skillsInput.placeholder = 'e.g. Python, Machine Learning, AWS, System Design';
+      } else if (roleVal.includes('Designer')) {
+        if (skillsLabel) skillsLabel.textContent = 'Design Tools & Specialty';
+        if (skillsInput) skillsInput.placeholder = 'e.g. Figma, UI/UX, Motion Design, Design Systems';
+      } else {
+        if (skillsLabel) skillsLabel.textContent = 'Key Tech Stack / Expertise';
+        if (skillsInput) skillsInput.placeholder = 'e.g. React, Node.js, Python, AWS, Docker';
+      }
+    });
+  }
+
+  // File Upload Preview & Reset
+  if (cvFileInput && cvUploadBox && cvUploadText) {
+    cvFileInput.addEventListener('change', () => {
+      const file = cvFileInput.files[0];
+      if (file) {
+        const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+        cvUploadText.textContent = `📄 ${file.name} (${sizeMB} MB)`;
+        cvUploadBox.classList.add('has-file');
+        if (cvRemoveBtn) cvRemoveBtn.style.display = 'inline-block';
+      }
+    });
+
+    if (cvRemoveBtn) {
+      cvRemoveBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        cvFileInput.value = '';
+        cvUploadText.textContent = 'Upload Resume (PDF, DOC, DOCX - max 10MB)';
+        cvUploadBox.classList.remove('has-file');
+        cvRemoveBtn.style.display = 'none';
+      });
+    }
+  }
+
+  // Unified Form Submission
+  if (unifiedForm) {
+    unifiedForm.addEventListener('submit', e => {
       e.preventDefault();
-      const btn = careerForm.querySelector('.form-submit');
-      btn.textContent = 'Sending…';
+      const btn = unifiedForm.querySelector('.form-submit');
+      const cvUrlInput = document.getElementById('app-cv-url');
+
+      // Simple validation: ensure either CV file or CV link is provided
+      const hasFile = cvFileInput && cvFileInput.files.length > 0;
+      const hasLink = cvUrlInput && cvUrlInput.value.trim().length > 0;
+
+      if (!hasFile && !hasLink) {
+        alert('Please either upload a CV file or provide a link to your CV/Resume.');
+        return;
+      }
+
+      btn.textContent = 'Submitting Application…';
       btn.disabled = true;
 
       setTimeout(() => {
-        const wrapper = careerForm.closest('.form-wrapper');
-        const success = careerForm.closest('.form-card')?.querySelector('.form-success');
+        const wrapper = unifiedForm.closest('.form-wrapper');
+        const success = unifiedForm.closest('.form-card')?.querySelector('.form-success');
         if (wrapper) wrapper.style.display = 'none';
         if (success) success.classList.add('show');
       }, 1200);
     });
-  });
+  }
 
-  /* ─── Career page: smooth scroll pills ──── */
-  document.querySelectorAll('.career-pill[href^="#"]').forEach(pill => {
+  /* ─── Career page: smooth scroll & role pre-select pills ──── */
+  document.querySelectorAll('a[href^="#apply"]').forEach(pill => {
     pill.addEventListener('click', e => {
       e.preventDefault();
-      const target = document.querySelector(pill.getAttribute('href'));
+      const role = pill.getAttribute('data-role');
+      if (roleSelect && role) {
+        roleSelect.value = role;
+        roleSelect.dispatchEvent(new Event('change'));
+      }
+      const target = document.querySelector('#apply');
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
 });
+
 

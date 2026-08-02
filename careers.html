@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Careers — Scaleve</title>
-  <meta name="description" content="Join Scaleve — apply to teach technical courses as an educator, or join our consultancy team as a developer or AI engineer." />
+  <meta name="description" content="Join Scaleve — apply to teach technical courses as an educator, or join our team as a developer, designer, or AI engineer." />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -61,21 +61,21 @@
   <div class="enquiry-wrap">
     <div class="enquiry-wrap-bg"></div>
 
-    <div class="container" style="padding-top: 140px; padding-bottom: 80px;">
+    <div class="container" style="padding-top: 140px; padding-bottom: 70px;">
       <span class="section-label" style="display:block; margin-bottom:16px;">Now Recruiting</span>
       <h1 style="font-size: clamp(2.6rem,6vw,4.5rem); font-weight:800; line-height:1.05; margin-bottom:20px;">
         Join <span class="gradient-text">Scaleve.</span>
       </h1>
-      <p style="font-size:1.05rem; color:var(--text-muted); max-width:560px; line-height:1.8; margin-bottom:40px;">
-        We're building something that matters — great courses and real technology solutions.
-        Whether you educate or you engineer, there's a place for you here.
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:580px; line-height:1.8; margin-bottom:36px;">
+        We're building something that matters — world-class technical courses and real-world software solutions.
+        Whether you educate or engineer, we want to hear from you.
       </p>
 
       <div class="career-pills">
-        <a href="#teach" class="career-pill career-pill-teach">
+        <a href="#apply" data-role="Educator / Course Instructor" class="career-pill career-pill-teach">
           <i class="fa-solid fa-chalkboard-user"></i> Teach with Scaleve
         </a>
-        <a href="#build" class="career-pill career-pill-build">
+        <a href="#apply" data-role="Full Stack Developer" class="career-pill career-pill-build">
           <i class="fa-solid fa-code"></i> Build with Scaleve
         </a>
       </div>
@@ -83,100 +83,44 @@
   </div>
 
   <!-- ═══════════════════════════════════════
-       SECTION: TEACH WITH SCALEVE
+       SECTION: TRACK OVERVIEW
   ═══════════════════════════════════════ -->
-  <section class="career-section" id="teach">
+  <section class="career-overview-section">
     <div class="container">
-      <div class="career-layout">
+      <div class="career-grid-overview">
 
-        <!-- Info -->
-        <div class="reveal">
+        <!-- Teach Track -->
+        <div class="career-card-info reveal">
           <span class="role-badge role-badge-teach">
             <i class="fa-solid fa-chalkboard-user"></i> For Educators
           </span>
-          <h2 class="career-info-title">Share What You Know.<br>Shape the Next Generation.</h2>
+          <h2 class="career-info-title">Teach &amp; Shape Engineers</h2>
           <p class="career-info-body">
-            We're looking for experienced professionals who are passionate about teaching —
-            not just people who know a subject, but people who can make it click for others.
-            If you have real-world expertise in technology and a genuine desire to share it,
-            we want to hear from you.
+            Share your domain expertise with thousands of eager learners. Create structured courses, mentor students, and earn ongoing royalties.
           </p>
-
-          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:14px;">What you get</p>
           <ul class="career-benefit-list">
-            <li>A structured platform to publish and deliver your courses</li>
-            <li>Support from the Scaleve team in curriculum design and production</li>
-            <li>Reach learners who are serious about building careers in tech</li>
-            <li>Flexibility — teach on your own schedule and terms</li>
-            <li>Ongoing royalties and recognition as a Scaleve expert educator</li>
+            <li>Flexible, async course creation schedule</li>
+            <li>Curriculum &amp; production support from Scaleve</li>
+            <li>Earn ongoing course revenue &amp; recognition</li>
+            <li>Active areas: AI/ML, Python, Cloud, DevOps, System Design</li>
           </ul>
-
-          <div style="margin-top:32px; padding:20px 24px; background:rgba(124,58,237,0.06); border:1px solid rgba(124,58,237,0.2); border-radius:var(--radius-md);">
-            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.7; margin:0;">
-              <strong style="color:var(--text-secondary);">We're actively looking for expertise in:</strong><br>
-              Python &amp; Data Science, AI &amp; Machine Learning, Web Development, Cloud (AWS/GCP/Azure),
-              DevOps, Elasticsearch / OpenSearch, System Design, and more.
-            </p>
-          </div>
         </div>
 
-        <!-- Form -->
-        <div class="reveal" style="transition-delay:0.12s;">
-          <div class="form-card">
-            <h2 class="form-title">Apply to Teach</h2>
-
-            <div class="form-wrapper">
-              <form id="teach-form" novalidate>
-
-                <div class="form-group">
-                  <label class="form-label" for="teach-name">Full Name</label>
-                  <input class="form-input" type="text" id="teach-name" name="name" placeholder="Your full name" required />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="teach-email">Email Address</label>
-                  <input class="form-input" type="email" id="teach-email" name="email" placeholder="you@example.com" required />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="teach-phone">Phone Number <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
-                  <input class="form-input" type="tel" id="teach-phone" name="phone" placeholder="+91 00000 00000" />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="teach-subject">Subject / Area of Expertise</label>
-                  <input class="form-input" type="text" id="teach-subject" name="subject" placeholder="e.g. Python, Machine Learning, AWS" required />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="teach-exp">Years of Industry Experience</label>
-                  <select class="form-select" id="teach-exp" name="experience" required>
-                    <option value="" disabled selected>Select experience level</option>
-                    <option>1 – 3 years</option>
-                    <option>3 – 5 years</option>
-                    <option>5 – 10 years</option>
-                    <option>10+ years</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="teach-message">Tell us about yourself &amp; your teaching experience</label>
-                  <textarea class="form-textarea" id="teach-message" name="message" placeholder="Your background, what you'd like to teach, any previous teaching or content creation experience…" required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary form-submit" style="width:100%;">
-                  Apply to Teach &rarr;
-                </button>
-
-              </form>
-            </div>
-
-            <div class="form-success">
-              <div class="success-icon">🎓</div>
-              <h3>Application Received!</h3>
-              <p>Thank you for your interest in teaching with Scaleve. We'll review your application and be in touch within 3–5 business days.</p>
-            </div>
-          </div>
+        <!-- Build Track -->
+        <div class="career-card-info reveal" style="transition-delay:0.1s;">
+          <span class="role-badge role-badge-build">
+            <i class="fa-solid fa-code"></i> For Developers
+          </span>
+          <h2 class="career-info-title">Build High-Impact Tech</h2>
+          <p class="career-info-body">
+            Work on client engineering projects, modernise systems, build custom AI pipelines, and deliver real software products.
+          </p>
+          <ul class="career-benefit-list">
+            <li>Remote-first &amp; async work environment</li>
+            <li>Projects in AI/ML, Cloud Infrastructure, Full-Stack</li>
+            <li>Clean architecture &amp; modern engineering stack</li>
+            <li>Active roles: Frontend, Backend, AI/ML, DevOps, UI/UX</li>
+          </ul>
         </div>
 
       </div>
@@ -184,109 +128,148 @@
   </section>
 
   <!-- ═══════════════════════════════════════
-       SECTION: BUILD WITH SCALEVE
+       SECTION: UNIFIED APPLICATION FORM
   ═══════════════════════════════════════ -->
-  <section class="career-section career-section-alt" id="build">
-    <div class="container">
-      <div class="career-layout">
+  <section class="career-section career-section-alt" id="apply">
+    <div class="container" style="max-width: 860px;">
+      <div class="reveal">
 
-        <!-- Info -->
-        <div class="reveal">
-          <span class="role-badge role-badge-build">
-            <i class="fa-solid fa-code"></i> For Developers &amp; Engineers
-          </span>
-          <h2 class="career-info-title">Build Real Products.<br>Solve Hard Problems.</h2>
-          <p class="career-info-body">
-            We work with businesses on projects that actually matter — new products, AI systems,
-            legacy modernisation, and cloud-scale infrastructure. We're looking for developers
-            and engineers who are self-directed, care about craft, and want to work on
-            things they can be proud of.
-          </p>
-
-          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:14px;">What you get</p>
-          <ul class="career-benefit-list">
-            <li>Challenging, varied projects across industries and tech stacks</li>
-            <li>Flexible working arrangements — remote-first, async-friendly</li>
-            <li>A team that writes clean code, ships on time, and does post-mortems</li>
-            <li>Exposure to AI/ML, cloud architecture, and modern engineering practices</li>
-            <li>A culture that values honesty, ownership, and continuous learning</li>
-          </ul>
-
-          <div style="margin-top:32px; padding:20px 24px; background:rgba(6,182,212,0.05); border:1px solid rgba(6,182,212,0.2); border-radius:var(--radius-md);">
-            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.7; margin:0;">
-              <strong style="color:var(--text-secondary);">Roles we commonly hire for:</strong><br>
-              Frontend Developer, Backend Developer, Full Stack Engineer, AI / ML Engineer,
-              DevOps &amp; Cloud Engineer, UI/UX Designer, QA Engineer.
+        <div class="form-card" style="padding: 44px 36px;">
+          <div style="text-align: center; margin-bottom: 32px;">
+            <span class="section-label" style="display:inline-block; margin-bottom: 8px;">Single Application</span>
+            <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight:800; font-family:'Outfit', sans-serif;">
+              Apply to Scaleve
+            </h2>
+            <p style="color:var(--text-muted); font-size:0.95rem; margin-top:8px;">
+              Select your track, tell us about your expertise, and upload your CV.
             </p>
           </div>
-        </div>
 
-        <!-- Form -->
-        <div class="reveal" style="transition-delay:0.12s;">
-          <div class="form-card">
-            <h2 class="form-title">Apply to Build</h2>
+          <div class="form-wrapper">
+            <form id="unified-application-form" novalidate>
 
-            <div class="form-wrapper">
-              <form id="build-form" novalidate>
-
+              <!-- Row 1: Full Name & Email -->
+              <div class="form-row">
                 <div class="form-group">
-                  <label class="form-label" for="build-name">Full Name</label>
-                  <input class="form-input" type="text" id="build-name" name="name" placeholder="Your full name" required />
+                  <label class="form-label" for="app-name">Full Name <span class="required-star">*</span></label>
+                  <input class="form-input" type="text" id="app-name" name="full_name" placeholder="e.g. Alex Morgan" required />
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label" for="build-email">Email Address</label>
-                  <input class="form-input" type="email" id="build-email" name="email" placeholder="you@example.com" required />
+                  <label class="form-label" for="app-email">Email Address <span class="required-star">*</span></label>
+                  <input class="form-input" type="email" id="app-email" name="email" placeholder="alex@example.com" required />
+                </div>
+              </div>
+
+              <!-- Row 2: Phone & Role Selection -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="app-phone">Phone Number <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
+                  <input class="form-input" type="tel" id="app-phone" name="phone" placeholder="+91 98765 43210" />
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label" for="build-phone">Phone Number <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
-                  <input class="form-input" type="tel" id="build-phone" name="phone" placeholder="+91 00000 00000" />
+                  <label class="form-label" for="app-role">Role / Application Track <span class="required-star">*</span></label>
+                  <select class="form-select" id="app-role" name="role" required>
+                    <option value="" disabled selected>Select a role track...</option>
+                    <optgroup label="Teaching & Education">
+                      <option value="Educator / Course Instructor">🎓 Educator / Course Instructor</option>
+                      <option value="Technical Mentor">👨‍🏫 Technical Mentor</option>
+                    </optgroup>
+                    <optgroup label="Engineering & Design">
+                      <option value="Full Stack Developer">💻 Full Stack Developer</option>
+                      <option value="Backend Developer">⚙️ Backend Developer</option>
+                      <option value="Frontend Developer">🎨 Frontend Developer</option>
+                      <option value="AI / ML Engineer">🤖 AI / ML Engineer</option>
+                      <option value="DevOps & Cloud Engineer">☁️ DevOps &amp; Cloud Engineer</option>
+                      <option value="UI / UX Designer">🖌️ UI / UX Designer</option>
+                      <option value="QA / Software Tester">🧪 QA / Software Tester</option>
+                    </optgroup>
+                    <optgroup label="Other">
+                      <option value="Other">✨ Other Role</option>
+                    </optgroup>
+                  </select>
                 </div>
+              </div>
 
+              <!-- Row 3: Experience & Skills/Subject -->
+              <div class="form-row">
                 <div class="form-group">
-                  <label class="form-label" for="build-role">Role You're Applying For</label>
-                  <select class="form-select" id="build-role" name="role" required>
-                    <option value="" disabled selected>Select a role</option>
-                    <option>Frontend Developer</option>
-                    <option>Backend Developer</option>
-                    <option>Full Stack Developer</option>
-                    <option>AI / ML Engineer</option>
-                    <option>DevOps &amp; Cloud Engineer</option>
-                    <option>UI / UX Designer</option>
-                    <option>QA Engineer</option>
-                    <option>Other</option>
+                  <label class="form-label" for="app-exp">Years of Experience <span class="required-star">*</span></label>
+                  <select class="form-select" id="app-exp" name="experience" required>
+                    <option value="" disabled selected>Select experience level</option>
+                    <option value="Fresh Graduate / <1 year">Less than 1 year</option>
+                    <option value="1 – 3 years">1 – 3 years</option>
+                    <option value="3 – 5 years">3 – 5 years</option>
+                    <option value="5 – 10 years">5 – 10 years</option>
+                    <option value="10+ years">10+ years</option>
                   </select>
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label" for="build-skills">Key Skills / Tech Stack</label>
-                  <input class="form-input" type="text" id="build-skills" name="skills" placeholder="e.g. React, Node.js, Python, AWS, Docker" required />
+                  <label class="form-label" for="app-skills">
+                    <span id="skills-label-text">Key Tech Stack / Expertise</span> <span class="required-star">*</span>
+                  </label>
+                  <input class="form-input" type="text" id="app-skills" name="skills" placeholder="e.g. Python, React, AWS, Docker, AI/ML" required />
                 </div>
+              </div>
 
-                <div class="form-group">
-                  <label class="form-label" for="build-portfolio">Portfolio / GitHub / LinkedIn <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
-                  <input class="form-input" type="url" id="build-portfolio" name="portfolio" placeholder="https://" />
+              <!-- Row 4: CV / Resume (File Upload & Link Options) -->
+              <div class="form-group">
+                <label class="form-label">
+                  CV / Resume <span class="required-star">*</span>
+                  <span style="color:var(--text-muted); font-weight:400; font-size:0.78rem; margin-left:6px;">Upload file OR provide link</span>
+                </label>
+
+                <div class="cv-input-container">
+                  <!-- File upload box -->
+                  <div class="file-upload-box" id="file-upload-box">
+                    <input type="file" id="app-cv-file" accept=".pdf,.doc,.docx" class="file-upload-input" />
+                    <label for="app-cv-file" class="file-upload-label">
+                      <i class="fa-solid fa-cloud-arrow-up file-upload-icon"></i>
+                      <span class="file-upload-text" id="file-upload-text">Upload Resume (PDF, DOC, DOCX - max 10MB)</span>
+                      <button type="button" class="file-remove-btn" id="file-remove-btn" style="display:none;" title="Remove file">&times;</button>
+                    </label>
+                  </div>
+
+                  <div class="cv-or-divider"><span>OR</span></div>
+
+                  <!-- Resume Link input -->
+                  <div>
+                    <input class="form-input" type="url" id="app-cv-url" name="cv_url" placeholder="Paste Resume Link (Google Drive, LinkedIn PDF, Dropbox)" />
+                  </div>
                 </div>
+              </div>
 
-                <div class="form-group">
-                  <label class="form-label" for="build-message">Tell us about yourself &amp; your work</label>
-                  <textarea class="form-textarea" id="build-message" name="message" placeholder="Your experience, the kind of projects you enjoy, what you're looking for next…" required></textarea>
-                </div>
+              <!-- Row 5: Portfolio / LinkedIn / GitHub URL -->
+              <div class="form-group">
+                <label class="form-label" for="app-portfolio">
+                  Portfolio / GitHub / LinkedIn <span style="color:var(--text-muted);font-weight:400;">(optional)</span>
+                </label>
+                <input class="form-input" type="url" id="app-portfolio" name="portfolio" placeholder="https://github.com/yourusername or https://linkedin.com/in/yourname" />
+              </div>
 
-                <button type="submit" class="btn btn-primary form-submit" style="width:100%; background: linear-gradient(135deg, #0891b2, #06b6d4);">
-                  Apply to Build &rarr;
-                </button>
+              <!-- Row 6: Bio / Cover Message -->
+              <div class="form-group">
+                <label class="form-label" for="app-message">Tell us about yourself &amp; your work <span class="required-star">*</span></label>
+                <textarea class="form-textarea" id="app-message" name="message" placeholder="Brief background, notable projects, what you'd like to teach or build at Scaleve…" required></textarea>
+              </div>
 
-              </form>
-            </div>
+              <button type="submit" class="btn btn-primary form-submit" style="width:100%; font-size:1.02rem; padding: 16px;">
+                Submit Application &rarr;
+              </button>
 
-            <div class="form-success">
-              <div class="success-icon">🚀</div>
-              <h3>Application Received!</h3>
-              <p>Great to hear from you. We'll review your details and reach out within 3–5 business days.</p>
-            </div>
+            </form>
           </div>
+
+          <div class="form-success">
+            <div class="success-icon">🚀</div>
+            <h3>Application Received!</h3>
+            <p style="font-size:0.95rem; line-height:1.7;">
+              Thank you for applying to Scaleve! We have received your application and resume. Our team will review your details and be in touch within 3–5 business days.
+            </p>
+          </div>
+
         </div>
 
       </div>
@@ -304,11 +287,11 @@
           <a href="index.html" class="logo">Scale<span class="logo-accent">ve</span></a>
           <p class="footer-tagline">Expert-led courses and AI consultancy — built for the builders of tomorrow.</p>
           <div class="footer-social">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           </div>
         </div>
 
@@ -326,8 +309,8 @@
         <div class="footer-col">
           <h4>Careers</h4>
           <ul>
-            <li><a href="careers.html#teach">Teach with Scaleve</a></li>
-            <li><a href="careers.html#build">Build with Scaleve</a></li>
+            <li><a href="careers.html#apply" data-role="Educator / Course Instructor">Teach with Scaleve</a></li>
+            <li><a href="careers.html#apply" data-role="Full Stack Developer">Build with Scaleve</a></li>
           </ul>
         </div>
 
