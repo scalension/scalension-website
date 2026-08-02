@@ -183,14 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
     unifiedForm.addEventListener('submit', e => {
       e.preventDefault();
       const btn = unifiedForm.querySelector('.form-submit');
-      const cvUrlInput = document.getElementById('app-cv-url');
 
-      // Simple validation: ensure either CV file or CV link is provided
       const hasFile = cvFileInput && cvFileInput.files.length > 0;
-      const hasLink = cvUrlInput && cvUrlInput.value.trim().length > 0;
-
-      if (!hasFile && !hasLink) {
-        alert('Please either upload a CV file or provide a link to your CV/Resume.');
+      if (!hasFile) {
+        alert('Please upload your CV / Resume file (PDF, DOC, or DOCX).');
         return;
       }
 
@@ -206,20 +202,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ─── Career page: smooth scroll & role pre-select pills ──── */
-  document.querySelectorAll('a[href^="#apply"]').forEach(pill => {
+  /* ─── Career page: role pre-select pills ──── */
+  document.querySelectorAll('[data-role]').forEach(pill => {
     pill.addEventListener('click', e => {
-      e.preventDefault();
       const role = pill.getAttribute('data-role');
       if (roleSelect && role) {
         roleSelect.value = role;
         roleSelect.dispatchEvent(new Event('change'));
       }
-      const target = document.querySelector('#apply');
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const formCard = document.getElementById('apply-card');
+      if (formCard) {
+        formCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     });
   });
 
 });
+
 
 
