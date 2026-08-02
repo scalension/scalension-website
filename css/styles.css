@@ -1488,6 +1488,10 @@ button { font-family: inherit; }
   align-items: center;
   position: relative; z-index:1;
 }
+.enquiry-layout-start {
+  align-items: flex-start;
+}
+
 
 .enquiry-info h1 {
   font-size: clamp(1.9rem, 3.5vw, 2.8rem);
@@ -1712,3 +1716,134 @@ button { font-family: inherit; }
   .form-card { padding: 28px 20px; }
   .enquiry-info h1 { font-size: 1.9rem; }
 }
+
+/* ═══════════════════════════════════════════════════
+   UNIFIED CAREERS & CV UPLOAD STYLES
+   ═══════════════════════════════════════════════════ */
+.career-overview-section {
+  padding: 80px 0 40px;
+}
+.career-grid-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+@media (max-width: 840px) {
+  .career-grid-overview { grid-template-columns: 1fr; gap: 24px; }
+}
+
+.career-card-info {
+  padding: 36px 32px;
+  background: rgba(15,23,41,0.65);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+}
+
+.required-star {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* CV Input Container & File Upload */
+.cv-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+.file-upload-box {
+  position: relative;
+  border: 1px dashed rgba(124,58,237,0.4);
+  background: rgba(124,58,237,0.04);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.file-upload-box:hover,
+.file-upload-box.dragover {
+  border-color: var(--color-primary-lt);
+  background: rgba(124,58,237,0.08);
+}
+.file-upload-input {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  z-index: 1;
+  pointer-events: none;
+}
+.file-upload-icon {
+  font-size: 1.4rem;
+  color: var(--color-primary-lt);
+}
+.file-upload-text {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-upload-box.has-file {
+  border-style: solid;
+  border-color: rgba(6,182,212,0.5);
+  background: rgba(6,182,212,0.06);
+}
+.file-upload-box.has-file .file-upload-icon {
+  color: var(--color-accent-lt);
+}
+.file-remove-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 3;
+  line-height: 1;
+  padding: 0 4px;
+}
+.file-remove-btn:hover {
+  color: #ef4444;
+}
+
+.cv-or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cv-or-divider::before,
+.cv-or-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border);
+}
+.cv-or-divider span {
+  padding: 0 12px;
+}
+
