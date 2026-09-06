@@ -1,8 +1,22 @@
-/* ============================================
-   SCALEVE — Main JavaScript
-   ============================================ */
+/* ==========================================================================
+   SCALENSION — Main JavaScript
+   ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* ─── Theme Toggle Logic ───────────────────── */
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  };
+
+  document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const target = current === 'dark' ? 'light' : 'dark';
+      setTheme(target);
+    });
+  });
 
   /* ─── Navbar scroll ──────────────────────── */
   const navbar = document.querySelector('.navbar');
