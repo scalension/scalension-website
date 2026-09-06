@@ -46,7 +46,7 @@
   padding: 40px 32px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
-  background: rgba(15,23,41,0.55);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
@@ -302,7 +302,7 @@
 .form-select {
   width: 100%;
   padding: 12px 16px;
-  background: rgba(15,23,41,0.6);
+  background: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   color: var(--text-primary);
@@ -320,7 +320,7 @@
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
 }
-.form-select option { background: #0f1729; }
+.form-select option { background: var(--bg-surface); color: var(--text-primary); }
 
 /* Career teaser banner (used on courses + consultancy pages) */
 .career-teaser {
@@ -329,7 +329,7 @@
   justify-content: space-between;
   gap: 32px;
   padding: 40px 48px;
-  background: rgba(124,58,237,0.04);
+  background: var(--teaser-bg);
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-xl);
   flex-wrap: wrap;
@@ -355,7 +355,8 @@
 /* ============================================
    CSS Variables
    ============================================ */
-:root {
+:root,
+[data-theme="dark"] {
   --bg-primary:        #080C18;
   --bg-surface:        #0F1729;
   --bg-elevated:       #162040;
@@ -371,7 +372,7 @@
   --text-secondary:    #CBD5E1;
   --text-muted:        #94A3B8;
 
-  --border:            rgba(255,255,255,0.07);
+  --border:            rgba(255,255,255,0.08);
   --border-primary:    rgba(124,58,237,0.4);
   --border-accent:     rgba(6,182,212,0.3);
 
@@ -383,6 +384,13 @@
   --shadow-primary:    0 0 30px rgba(124,58,237,0.25);
   --glow-primary:      0 0 20px rgba(124,58,237,0.4), 0 0 60px rgba(124,58,237,0.15);
 
+  --glass-bg:          rgba(15,23,41,0.75);
+  --card-bg:           rgba(15,23,41,0.6);
+  --input-bg:          rgba(15,23,41,0.7);
+  --nav-bg-scrolled:   rgba(8,12,24,0.92);
+  --teaser-bg:         rgba(124,58,237,0.04);
+  --mobile-nav-bg:     rgba(15,23,41,0.98);
+
   --radius-sm:  8px;
   --radius-md:  14px;
   --radius-lg:  20px;
@@ -393,6 +401,42 @@
 
   --section-pad: 96px 0;
   --container:   1200px;
+}
+
+[data-theme="light"] {
+  --bg-primary:        #F8FAFC;
+  --bg-surface:        #FFFFFF;
+  --bg-elevated:       #F1F5F9;
+  --color-primary:     #6D28D9;
+  --color-primary-lt:  #7C3AED;
+  --color-accent:      #0891B2;
+  --color-accent-lt:   #0284C7;
+  --clr-green:         #16a34a;
+  --clr-orange:        #ea580c;
+  --clr-red:           #dc2626;
+
+  --text-primary:      #0F172A;
+  --text-secondary:    #334155;
+  --text-muted:        #64748B;
+
+  --border:            rgba(15,23,42,0.1);
+  --border-primary:    rgba(109,40,217,0.3);
+  --border-accent:     rgba(8,145,178,0.3);
+
+  --gradient-brand:    linear-gradient(135deg, #6D28D9, #0891B2);
+  --gradient-text:     linear-gradient(135deg, #6D28D9, #0891B2);
+  --gradient-surface:  linear-gradient(135deg, rgba(109,40,217,0.06), rgba(8,145,178,0.04));
+
+  --shadow-card:       0 10px 30px -5px rgba(0, 0, 0, 0.07), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  --shadow-primary:    0 10px 25px rgba(109, 40, 217, 0.15);
+  --glow-primary:      0 0 20px rgba(109, 40, 217, 0.12);
+
+  --glass-bg:          rgba(255, 255, 255, 0.85);
+  --card-bg:           #FFFFFF;
+  --input-bg:          #F8FAFC;
+  --nav-bg-scrolled:   rgba(255, 255, 255, 0.92);
+  --teaser-bg:         rgba(109,40,217,0.05);
+  --mobile-nav-bg:     rgba(255,255,255,0.98);
 }
 
 /* ============================================
@@ -518,7 +562,7 @@ button { font-family: inherit; }
    Glass Card
    ============================================ */
 .glass-card {
-  background: rgba(15,23,41,0.75);
+  background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border);
@@ -604,7 +648,7 @@ button { font-family: inherit; }
 }
 
 .navbar.scrolled {
-  background: rgba(8,12,24,0.92);
+  background: var(--nav-bg-scrolled);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -973,9 +1017,9 @@ button { font-family: inherit; }
 }
 .step-body p { font-size: 0.77rem; color: var(--text-muted); line-height:1.4; }
 
-/* ============================================
-   HOME — Why Scaleve
-   ============================================ */
+/* ==========================================================================
+   HOME — Why Scalension
+   ========================================================================== */
 .why-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -1158,7 +1202,7 @@ button { font-family: inherit; }
 
 .course-card {
   border-radius: var(--radius-lg);
-  background: rgba(15,23,41,0.8);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   overflow: hidden;
   transition: border-color var(--transition), box-shadow var(--transition);
@@ -1422,7 +1466,7 @@ button { font-family: inherit; }
 .industry-item {
   padding: 20px 14px;
   border-radius: var(--radius-md);
-  background: rgba(15,23,41,0.6);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   text-align: center;
   transition: var(--transition);
@@ -1488,6 +1532,10 @@ button { font-family: inherit; }
   align-items: center;
   position: relative; z-index:1;
 }
+.enquiry-layout-start {
+  align-items: flex-start;
+}
+
 
 .enquiry-info h1 {
   font-size: clamp(1.9rem, 3.5vw, 2.8rem);
@@ -1523,7 +1571,7 @@ button { font-family: inherit; }
 .form-card {
   padding: 40px;
   border-radius: var(--radius-xl);
-  background: rgba(15,23,41,0.85);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -1553,7 +1601,7 @@ button { font-family: inherit; }
 .form-textarea {
   width: 100%;
   padding: 13px 16px;
-  background: rgba(255,255,255,0.04);
+  background: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   color: var(--text-primary);
@@ -1712,3 +1760,172 @@ button { font-family: inherit; }
   .form-card { padding: 28px 20px; }
   .enquiry-info h1 { font-size: 1.9rem; }
 }
+
+/* ═══════════════════════════════════════════════════
+   UNIFIED CAREERS & CV UPLOAD STYLES
+   ═══════════════════════════════════════════════════ */
+.career-overview-section {
+  padding: 80px 0 40px;
+}
+.career-grid-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+@media (max-width: 840px) {
+  .career-grid-overview { grid-template-columns: 1fr; gap: 24px; }
+}
+
+.career-card-info {
+  padding: 36px 32px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+}
+
+.required-star {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* CV Input Container & File Upload */
+.cv-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+.file-upload-box {
+  position: relative;
+  border: 1px dashed rgba(124,58,237,0.4);
+  background: rgba(124,58,237,0.04);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.file-upload-box:hover,
+.file-upload-box.dragover {
+  border-color: var(--color-primary-lt);
+  background: rgba(124,58,237,0.08);
+}
+.file-upload-input {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  z-index: 1;
+  pointer-events: none;
+}
+.file-upload-icon {
+  font-size: 1.4rem;
+  color: var(--color-primary-lt);
+}
+.file-upload-text {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-upload-box.has-file {
+  border-style: solid;
+  border-color: rgba(6,182,212,0.5);
+  background: rgba(6,182,212,0.06);
+}
+.file-upload-box.has-file .file-upload-icon {
+  color: var(--color-accent-lt);
+}
+.file-remove-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 3;
+  line-height: 1;
+  padding: 0 4px;
+}
+.file-remove-btn:hover {
+  color: #ef4444;
+}
+
+.cv-or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cv-or-divider::before,
+.cv-or-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border);
+}
+.cv-or-divider span {
+  padding: 0 12px;
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+  margin-left: 6px;
+  outline: none;
+}
+
+[data-theme="light"] .theme-toggle-btn {
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-lt);
+  transform: rotate(15deg) scale(1.05);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.25);
+}
+
+.theme-toggle-btn .icon-sun { display: none; }
+.theme-toggle-btn .icon-moon { display: inline-block; color: var(--color-primary-lt); }
+
+[data-theme="light"] .theme-toggle-btn .icon-sun { display: inline-block; color: #f59e0b; }
+[data-theme="light"] .theme-toggle-btn .icon-moon { display: none; }
+
+

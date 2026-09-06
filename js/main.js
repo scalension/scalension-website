@@ -1,8 +1,22 @@
-/* ============================================
-   SCALEVE — Main JavaScript
-   ============================================ */
+/* ==========================================================================
+   SCALENSION — Main JavaScript
+   ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* ─── Theme Toggle Logic ───────────────────── */
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  };
+
+  document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const target = current === 'dark' ? 'light' : 'dark';
+      setTheme(target);
+    });
+  });
 
   /* ─── Navbar scroll ──────────────────────── */
   const navbar = document.querySelector('.navbar');
@@ -118,44 +132,149 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', e => {
       e.preventDefault();
       const submitBtn = form.querySelector('.form-submit');
+      const actionUrl = form.action;
+
       submitBtn.textContent = 'Sending…';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
+      const showSuccess = () => {
         if (formWrapper) formWrapper.style.display = 'none';
         if (formSuccess) formSuccess.classList.add('show');
-      }, 1200);
+      };
+
+      if (!actionUrl || actionUrl === window.location.href) {
+        setTimeout(showSuccess, 1000);
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .then(() => {
+        showSuccess();
+      })
+      .catch(err => {
+        console.error('Submission error:', err);
+        showSuccess();
+      });
     });
   }
 
-  /* ─── Career forms (teach + build) ──────── */
-  ['teach-form', 'build-form'].forEach(formId => {
-    const careerForm = document.getElementById(formId);
-    if (!careerForm) return;
+  /* ─── Unified Career Form Logic ────────────── */
+  const unifiedForm   = document.getElementById('unified-application-form');
+  const roleSelect    = document.getElementById('app-role');
+  const skillsLabel   = document.getElementById('skills-label-text');
+  const skillsInput   = document.getElementById('app-skills');
+  const cvFileInput   = document.getElementById('app-cv-file');
+  const cvUploadBox   = document.getElementById('file-upload-box');
+  const cvUploadText  = document.getElementById('file-upload-text');
+  const cvRemoveBtn   = document.getElementById('file-remove-btn');
 
-    careerForm.addEventListener('submit', e => {
+  // Dynamic Role Selection adjustments
+  if (roleSelect) {
+    roleSelect.addEventListener('change', () => {
+      const roleVal = roleSelect.value;
+      if (roleVal.includes('Educator') || roleVal.includes('Mentor')) {
+        if (skillsLabel) skillsLabel.textContent = 'Teaching Subject / Areas of Expertise';
+        if (skillsInput) skillsInput.placeholder = 'e.g. Python, Machine Learning, AWS, System Design';
+      } else if (roleVal.includes('Designer')) {
+        if (skillsLabel) skillsLabel.textContent = 'Design Tools & Specialty';
+        if (skillsInput) skillsInput.placeholder = 'e.g. Figma, UI/UX, Motion Design, Design Systems';
+      } else {
+        if (skillsLabel) skillsLabel.textContent = 'Key Tech Stack / Expertise';
+        if (skillsInput) skillsInput.placeholder = 'e.g. React, Node.js, Python, AWS, Docker';
+      }
+    });
+  }
+
+  // File Upload Preview & Reset
+  if (cvFileInput && cvUploadBox && cvUploadText) {
+    cvFileInput.addEventListener('change', () => {
+      const file = cvFileInput.files[0];
+      if (file) {
+        const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+        cvUploadText.textContent = `📄 ${file.name} (${sizeMB} MB)`;
+        cvUploadBox.classList.add('has-file');
+        if (cvRemoveBtn) cvRemoveBtn.style.display = 'inline-block';
+      }
+    });
+
+    if (cvRemoveBtn) {
+      cvRemoveBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        cvFileInput.value = '';
+        cvUploadText.textContent = 'Upload Resume (PDF, DOC, DOCX - max 10MB)';
+        cvUploadBox.classList.remove('has-file');
+        cvRemoveBtn.style.display = 'none';
+      });
+    }
+  }
+
+  // Unified Form Submission
+  if (unifiedForm) {
+    unifiedForm.addEventListener('submit', e => {
       e.preventDefault();
-      const btn = careerForm.querySelector('.form-submit');
-      btn.textContent = 'Sending…';
+      const btn = unifiedForm.querySelector('.form-submit');
+      const actionUrl = unifiedForm.action;
+
+      const hasFile = cvFileInput && cvFileInput.files.length > 0;
+      if (!hasFile) {
+        alert('Please upload your CV / Resume file (PDF, DOC, or DOCX).');
+        return;
+      }
+
+      btn.textContent = 'Submitting Application…';
       btn.disabled = true;
 
-      setTimeout(() => {
-        const wrapper = careerForm.closest('.form-wrapper');
-        const success = careerForm.closest('.form-card')?.querySelector('.form-success');
+      const showSuccess = () => {
+        const wrapper = unifiedForm.closest('.form-wrapper');
+        const success = unifiedForm.closest('.form-card')?.querySelector('.form-success');
         if (wrapper) wrapper.style.display = 'none';
         if (success) success.classList.add('show');
-      }, 1200);
-    });
-  });
+      };
 
-  /* ─── Career page: smooth scroll pills ──── */
-  document.querySelectorAll('.career-pill[href^="#"]').forEach(pill => {
+      if (!actionUrl || actionUrl === window.location.href) {
+        setTimeout(showSuccess, 1000);
+        return;
+      }
+
+      const formData = new FormData(unifiedForm);
+
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .then(() => {
+        showSuccess();
+      })
+      .catch(err => {
+        console.error('Submission error:', err);
+        showSuccess();
+      });
+    });
+  }
+
+  /* ─── Career page: role pre-select pills ──── */
+  document.querySelectorAll('[data-role]').forEach(pill => {
     pill.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(pill.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const role = pill.getAttribute('data-role');
+      if (roleSelect && role) {
+        roleSelect.value = role;
+        roleSelect.dispatchEvent(new Event('change'));
+      }
+      const formCard = document.getElementById('apply-card');
+      if (formCard) {
+        formCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     });
   });
 
 });
+
+
 
