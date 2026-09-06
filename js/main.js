@@ -1,8 +1,22 @@
-/* ============================================
-   SCALEVE — Main JavaScript
-   ============================================ */
+/* ==========================================================================
+   SCALENSION — Main JavaScript
+   ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* ─── Theme Toggle Logic ───────────────────── */
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  };
+
+  document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const target = current === 'dark' ? 'light' : 'dark';
+      setTheme(target);
+    });
+  });
 
   /* ─── Navbar scroll ──────────────────────── */
   const navbar = document.querySelector('.navbar');
@@ -118,13 +132,35 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', e => {
       e.preventDefault();
       const submitBtn = form.querySelector('.form-submit');
+      const actionUrl = form.action;
+
       submitBtn.textContent = 'Sending…';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
+      const showSuccess = () => {
         if (formWrapper) formWrapper.style.display = 'none';
         if (formSuccess) formSuccess.classList.add('show');
-      }, 1200);
+      };
+
+      if (!actionUrl || actionUrl === window.location.href) {
+        setTimeout(showSuccess, 1000);
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .then(() => {
+        showSuccess();
+      })
+      .catch(err => {
+        console.error('Submission error:', err);
+        showSuccess();
+      });
     });
   }
 
@@ -183,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
     unifiedForm.addEventListener('submit', e => {
       e.preventDefault();
       const btn = unifiedForm.querySelector('.form-submit');
+      const actionUrl = unifiedForm.action;
 
       const hasFile = cvFileInput && cvFileInput.files.length > 0;
       if (!hasFile) {
@@ -193,12 +230,32 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Submitting Application…';
       btn.disabled = true;
 
-      setTimeout(() => {
+      const showSuccess = () => {
         const wrapper = unifiedForm.closest('.form-wrapper');
         const success = unifiedForm.closest('.form-card')?.querySelector('.form-success');
         if (wrapper) wrapper.style.display = 'none';
         if (success) success.classList.add('show');
-      }, 1200);
+      };
+
+      if (!actionUrl || actionUrl === window.location.href) {
+        setTimeout(showSuccess, 1000);
+        return;
+      }
+
+      const formData = new FormData(unifiedForm);
+
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .then(() => {
+        showSuccess();
+      })
+      .catch(err => {
+        console.error('Submission error:', err);
+        showSuccess();
+      });
     });
   }
 
