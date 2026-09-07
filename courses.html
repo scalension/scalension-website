@@ -7,6 +7,9 @@
   <title>Courses — Scalension</title>
   <meta name="description"
     content="Explore Scalension's structured technical courses in AI, Python, Web Development, Cloud, and DevOps — complete with full module roadmaps." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script>
@@ -97,14 +100,29 @@
   <section class="section">
     <div class="container">
 
-      <!-- ── Category Filter ───────────────── -->
-      <div class="category-filter reveal">
-        <button class="filter-btn active" data-filter="all">All Courses</button>
-        <button class="filter-btn" data-filter="ai-ml">AI &amp; Machine Learning</button>
-        <button class="filter-btn" data-filter="programming">Programming &amp; Data</button>
-        <button class="filter-btn" data-filter="web-dev">Web Development</button>
-        <button class="filter-btn" data-filter="cloud">Cloud &amp; Infrastructure</button>
-        <button class="filter-btn" data-filter="devops">DevOps &amp; Automation</button>
+      <!-- ── Category Filter Control ───────────────── -->
+      <div class="category-filter-wrapper reveal">
+        <div class="filter-box">
+          <i class="fa-solid fa-filter filter-icon"></i>
+          <span class="filter-label">Filter:</span>
+          <div class="select-wrapper">
+            <select id="course-filter-select" class="filter-select" aria-label="Filter courses by category">
+              <option value="all">All Categories</option>
+              <option value="ai-ml">🤖 AI &amp; Machine Learning</option>
+              <option value="programming">🐍 Programming &amp; Data</option>
+              <option value="web-dev">💻 Web Development</option>
+              <option value="cloud">☁️ Cloud &amp; Infrastructure</option>
+              <option value="devops">⚙️ DevOps &amp; Automation</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-chevron"></i>
+          </div>
+        </div>
+
+        <button id="clear-filter-btn" class="clear-filter-btn" title="Remove filter" style="display: none;">
+          <i class="fa-solid fa-xmark"></i> Remove Filter
+        </button>
+
+        <span id="filter-results-count" class="filter-results-count">Showing all categories</span>
       </div>
 
       <!-- ════════════════════════════════════════════════════════
