@@ -72,22 +72,49 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   /* ─── Course category filter (courses.html) ─ */
-  const filterBtns   = document.querySelectorAll('.filter-btn');
-  const courseGroups = document.querySelectorAll('.course-group');
+  const filterSelect   = document.getElementById('course-filter-select');
+  const clearFilterBtn = document.getElementById('clear-filter-btn');
+  const resultsCount   = document.getElementById('filter-results-count');
+  const courseGroups   = document.querySelectorAll('.course-group');
 
-  if (filterBtns.length) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+  if (filterSelect && courseGroups.length) {
+    const updateFilter = (filterVal) => {
+      filterSelect.value = filterVal;
 
-        const filter = btn.dataset.filter;
-
-        courseGroups.forEach(group => {
-          const show = filter === 'all' || group.dataset.category === filter;
-          group.style.display = show ? 'block' : 'none';
-        });
+      let visibleCount = 0;
+      courseGroups.forEach(group => {
+        const matches = filterVal === 'all' || group.dataset.category === filterVal;
+        group.style.display = matches ? 'block' : 'none';
+        if (matches) visibleCount++;
       });
+
+      if (filterVal !== 'all') {
+        const selectedOption = filterSelect.options[filterSelect.selectedIndex];
+        const labelText = selectedOption ? selectedOption.textContent.replace(/^[^\w]+/, '').trim() : filterVal;
+        if (clearFilterBtn) clearFilterBtn.style.display = 'inline-flex';
+        if (resultsCount) resultsCount.textContent = `Showing: ${labelText}`;
+      } else {
+        if (clearFilterBtn) clearFilterBtn.style.display = 'none';
+        if (resultsCount) resultsCount.textContent = 'Showing all categories';
+      }
+    };
+
+    filterSelect.addEventListener('change', e => {
+      updateFilter(e.target.value);
+    });
+
+    clearFilterBtn?.addEventListener('click', () => {
+      updateFilter('all');
+    });
+
+    // Support data-filter buttons if clicked from external links/cards
+    document.querySelectorAll('[data-filter]').forEach(btn => {
+      if (btn.id !== 'course-filter-select') {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+          if (filter) updateFilter(filter);
+        });
+      }
     });
   }
 
@@ -164,115 +191,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ─── Unified Career Form Logic ────────────── */
-  const unifiedForm   = document.getElementById('unified-application-form');
-  const roleSelect    = document.getElementById('app-role');
-  const skillsLabel   = document.getElementById('skills-label-text');
-  const skillsInput   = document.getElementById('app-skills');
-  const cvFileInput   = document.getElementById('app-cv-file');
-  const cvUploadBox   = document.getElementById('file-upload-box');
-  const cvUploadText  = document.getElementById('file-upload-text');
-  const cvRemoveBtn   = document.getElementById('file-remove-btn');
-
-  // Dynamic Role Selection adjustments
-  if (roleSelect) {
-    roleSelect.addEventListener('change', () => {
-      const roleVal = roleSelect.value;
-      if (roleVal.includes('Educator') || roleVal.includes('Mentor')) {
-        if (skillsLabel) skillsLabel.textContent = 'Teaching Subject / Areas of Expertise';
-        if (skillsInput) skillsInput.placeholder = 'e.g. Python, Machine Learning, AWS, System Design';
-      } else if (roleVal.includes('Designer')) {
-        if (skillsLabel) skillsLabel.textContent = 'Design Tools & Specialty';
-        if (skillsInput) skillsInput.placeholder = 'e.g. Figma, UI/UX, Motion Design, Design Systems';
-      } else {
-        if (skillsLabel) skillsLabel.textContent = 'Key Tech Stack / Expertise';
-        if (skillsInput) skillsInput.placeholder = 'e.g. React, Node.js, Python, AWS, Docker';
-      }
-    });
-  }
-
-  // File Upload Preview & Reset
-  if (cvFileInput && cvUploadBox && cvUploadText) {
-    cvFileInput.addEventListener('change', () => {
-      const file = cvFileInput.files[0];
-      if (file) {
-        const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-        cvUploadText.textContent = `📄 ${file.name} (${sizeMB} MB)`;
-        cvUploadBox.classList.add('has-file');
-        if (cvRemoveBtn) cvRemoveBtn.style.display = 'inline-block';
-      }
-    });
-
-    if (cvRemoveBtn) {
-      cvRemoveBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        cvFileInput.value = '';
-        cvUploadText.textContent = 'Upload Resume (PDF, DOC, DOCX - max 10MB)';
-        cvUploadBox.classList.remove('has-file');
-        cvRemoveBtn.style.display = 'none';
-      });
-    }
-  }
-
-  // Unified Form Submission
-  if (unifiedForm) {
-    unifiedForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const btn = unifiedForm.querySelector('.form-submit');
-      const actionUrl = unifiedForm.action;
-
-      const hasFile = cvFileInput && cvFileInput.files.length > 0;
-      if (!hasFile) {
-        alert('Please upload your CV / Resume file (PDF, DOC, or DOCX).');
-        return;
-      }
-
-      btn.textContent = 'Submitting Application…';
-      btn.disabled = true;
-
-      const showSuccess = () => {
-        const wrapper = unifiedForm.closest('.form-wrapper');
-        const success = unifiedForm.closest('.form-card')?.querySelector('.form-success');
-        if (wrapper) wrapper.style.display = 'none';
-        if (success) success.classList.add('show');
-      };
-
-      if (!actionUrl || actionUrl === window.location.href) {
-        setTimeout(showSuccess, 1000);
-        return;
-      }
-
-      const formData = new FormData(unifiedForm);
-
-      fetch(actionUrl, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-      })
-      .then(() => {
-        showSuccess();
-      })
-      .catch(err => {
-        console.error('Submission error:', err);
-        showSuccess();
+  /* ─── Career page: Copy email button ──────── */
+  const copyEmailBtn = document.getElementById('copy-email-btn');
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', () => {
+      const email = 'contact@scalension.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const originalHTML = copyEmailBtn.innerHTML;
+        copyEmailBtn.innerHTML = '<i class="fa-solid fa-check" style="color:var(--clr-green);"></i> Copied!';
+        setTimeout(() => {
+          copyEmailBtn.innerHTML = originalHTML;
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
       });
     });
   }
-
-  /* ─── Career page: role pre-select pills ──── */
-  document.querySelectorAll('[data-role]').forEach(pill => {
-    pill.addEventListener('click', e => {
-      const role = pill.getAttribute('data-role');
-      if (roleSelect && role) {
-        roleSelect.value = role;
-        roleSelect.dispatchEvent(new Event('change'));
-      }
-      const formCard = document.getElementById('apply-card');
-      if (formCard) {
-        formCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-  });
 
 });
 
