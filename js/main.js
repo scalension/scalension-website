@@ -211,12 +211,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── Hero Banner Slider (Consultancy + Academy) ── */
   const heroSlider = document.querySelector('.hero-slider-container');
   if (heroSlider) {
-    const slides  = heroSlider.querySelectorAll('.hero-slide');
-    const dots    = heroSlider.querySelectorAll('.dot-v2');
-    const prevBtn = heroSlider.querySelector('.prev-slide');
-    const nextBtn = heroSlider.querySelector('.next-slide');
+    const slides     = heroSlider.querySelectorAll('.hero-slide');
+    const segments   = heroSlider.querySelectorAll('.hero-progress-segment');
+    const prevBtn    = heroSlider.querySelector('.prev-slide');
+    const nextBtn    = heroSlider.querySelector('.next-slide');
     let currentIndex = 0;
     let autoSlideTimer = null;
+    const SLIDE_DURATION = 6000; // matches CSS progressSweep
 
     const goToSlide = (index) => {
       currentIndex = (index + slides.length) % slides.length;
@@ -225,8 +226,16 @@ document.addEventListener('DOMContentLoaded', () => {
         slide.classList.toggle('active', i === currentIndex);
       });
 
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
+      // Restart progress bar animation
+      segments.forEach((seg, i) => {
+        const fill = seg.querySelector('.progress-fill');
+        seg.classList.toggle('active', i === currentIndex);
+        if (fill) {
+          // Force restart animation
+          fill.style.animation = 'none';
+          fill.offsetHeight; // trigger reflow
+          fill.style.animation = '';
+        }
       });
     };
 
@@ -235,16 +244,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const startAutoSlide = () => {
       stopAutoSlide();
-      autoSlideTimer = setInterval(nextSlide, 4500);
+      autoSlideTimer = setInterval(nextSlide, SLIDE_DURATION);
     };
 
     const stopAutoSlide = () => {
       if (autoSlideTimer) clearInterval(autoSlideTimer);
     };
 
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const idx = parseInt(dot.dataset.slide, 10);
+    segments.forEach(seg => {
+      seg.addEventListener('click', () => {
+        const idx = parseInt(seg.dataset.slide, 10);
         goToSlide(idx);
         startAutoSlide();
       });
@@ -260,7 +269,11 @@ document.addEventListener('DOMContentLoaded', () => {
       startAutoSlide();
     });
 
-    // Start auto-rotation on load
+    // Pause on hover, resume on leave
+    heroSlider.addEventListener('mouseenter', stopAutoSlide);
+    heroSlider.addEventListener('mouseleave', startAutoSlide);
+
+    // Start
     goToSlide(0);
     startAutoSlide();
   }

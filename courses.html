@@ -80,19 +80,77 @@
   </nav>
 
   <!-- ═══════════════════════════════════════
-       PAGE HERO
+       COURSES HERO — Immersive Banner
   ═══════════════════════════════════════ -->
-  <div class="page-hero">
-    <div class="page-hero-bg"></div>
-    <div class="page-hero-content">
-      <div class="container">
-        <span class="section-label">Course Catalog</span>
-        <h1>All Courses &amp; <span class="gradient-text">Roadmaps</span></h1>
-        <p>Every course includes a full module index. Expand any course to see exactly what you'll learn, step by step.
-        </p>
+  <section class="courses-hero" id="courses-hero-top">
+    <!-- Animated grid backdrop -->
+    <div class="ch-grid"></div>
+    <!-- Radial glow orbs -->
+    <div class="ch-orb ch-orb-1"></div>
+    <div class="ch-orb ch-orb-2"></div>
+    <div class="ch-orb ch-orb-3"></div>
+
+    <!-- Floating tech badges -->
+    <div class="ch-badge ch-badge-1"><i class="fa-brands fa-python"></i> Python</div>
+    <div class="ch-badge ch-badge-2"><i class="fa-solid fa-brain"></i> AI & ML</div>
+    <div class="ch-badge ch-badge-3"><i class="fa-brands fa-aws"></i> Cloud</div>
+    <div class="ch-badge ch-badge-4"><i class="fa-solid fa-code"></i> Web Dev</div>
+    <div class="ch-badge ch-badge-5"><i class="fa-solid fa-gears"></i> DevOps</div>
+
+    <div class="container ch-content">
+      <!-- Kicker label -->
+      <div class="ch-kicker">
+        <span class="ch-kicker-dot"></span>
+        Scalension Academy
+      </div>
+
+      <!-- Headline -->
+      <h1 class="ch-title">
+        Learn. Build.<br>
+        <span class="ch-title-gradient">Level Up Your Tech Career.</span>
+      </h1>
+
+      <!-- Sub-copy -->
+      <p class="ch-sub">
+        Industry-structured courses with full module roadmaps, hands-on projects,
+        and expert mentorship — everything you need to go from learner to professional.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="ch-actions">
+        <a href="#ai-ml" class="btn btn-primary btn-glow ch-btn-primary">
+          <i class="fa-solid fa-compass"></i> Explore Courses
+        </a>
+        <a href="enquiry.html?intent=free-session" class="btn ch-btn-secondary">
+          <i class="fa-solid fa-calendar-check"></i> Book Free Session
+        </a>
+      </div>
+
+      <!-- Feature highlights row -->
+      <div class="ch-stats">
+        <div class="ch-stat">
+          <div class="ch-stat-icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
+          <span class="ch-stat-label">Hands-On Projects</span>
+        </div>
+        <div class="ch-stat-divider"></div>
+        <div class="ch-stat">
+          <div class="ch-stat-icon-wrap"><i class="fa-solid fa-map-location-dot"></i></div>
+          <span class="ch-stat-label">Structured Roadmaps</span>
+        </div>
+        <div class="ch-stat-divider"></div>
+        <div class="ch-stat">
+          <div class="ch-stat-icon-wrap"><i class="fa-solid fa-user-tie"></i></div>
+          <span class="ch-stat-label">Expert Mentorship</span>
+        </div>
+        <div class="ch-stat-divider"></div>
+        <div class="ch-stat">
+          <div class="ch-stat-icon-wrap"><i class="fa-solid fa-calendar-check"></i></div>
+          <span class="ch-stat-label">Free First Session</span>
+        </div>
       </div>
     </div>
-  </div>
+
+  </section>
 
   <!-- ═══════════════════════════════════════
        COURSES MAIN
@@ -135,7 +193,6 @@
         <div class="course-group-header">
           <span class="group-icon">🤖</span>
           <h2 class="group-title">AI &amp; Machine Learning</h2>
-          <span class="group-count">2 courses</span>
         </div>
 
         <div class="courses-stack">
@@ -405,7 +462,6 @@
         <div class="course-group-header">
           <span class="group-icon">🐍</span>
           <h2 class="group-title">Programming &amp; Data</h2>
-          <span class="group-count">1 course</span>
         </div>
 
         <div class="courses-stack">
@@ -542,7 +598,6 @@
         <div class="course-group-header">
           <span class="group-icon">🌐</span>
           <h2 class="group-title">Web Development</h2>
-          <span class="group-count">1 course</span>
         </div>
 
         <div class="courses-stack">
@@ -730,7 +785,6 @@
         <div class="course-group-header">
           <span class="group-icon">☁️</span>
           <h2 class="group-title">Cloud &amp; Infrastructure</h2>
-          <span class="group-count">2 courses</span>
         </div>
 
         <div class="courses-stack">
@@ -1020,7 +1074,6 @@
         <div class="course-group-header">
           <span class="group-icon">⚙️</span>
           <h2 class="group-title">DevOps &amp; Automation</h2>
-          <span class="group-count">1 course</span>
         </div>
 
         <div class="courses-stack">

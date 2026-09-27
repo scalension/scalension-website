@@ -35,7 +35,7 @@
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="courses.html">Academy</a></li>
+        <li><a href="courses.html">Courses</a></li>
         <li><a href="consultancy.html">Consultancy</a></li>
         <li><a href="careers.html">Careers</a></li>
         <li><a href="enquiry.html">Enquiry</a></li>
@@ -66,7 +66,7 @@
   <nav class="mobile-nav" aria-label="Mobile navigation">
     <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
     <a href="index.html">Home</a>
-    <a href="courses.html">Academy</a>
+    <a href="courses.html">Courses</a>
     <a href="consultancy.html">Consultancy</a>
     <a href="careers.html">Careers</a>
     <a href="enquiry.html">Enquiry</a>
@@ -88,177 +88,118 @@
   </nav>
 
   <!-- ═══════════════════════════════════════
-       HERO BANNERS (Consultancy FIRST, Academy SECOND)
+       HERO BANNERS — Immersive Full-Width Carousel
   ═══════════════════════════════════════ -->
-  <section class="hero hero-slider-container">
+  <section class="hero hero-slider-container" id="hero-carousel">
     <div class="hero-bg"></div>
     <div class="grid-bg"></div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
 
-    <div class="container relative-z">
+    <!-- Animated floating particles -->
+    <div class="hero-particles" aria-hidden="true">
+      <span class="particle p1"></span>
+      <span class="particle p2"></span>
+      <span class="particle p3"></span>
+      <span class="particle p4"></span>
+      <span class="particle p5"></span>
+      <span class="particle p6"></span>
+    </div>
 
+    <div class="container relative-z">
       <div class="hero-slides-wrapper">
 
-        <!-- ─── BANNER 1: Software Consultancy & Products (FIRST) ─── -->
-        <div class="hero-slide active" id="slide-consultancy" data-index="0">
-          <div class="hero-grid">
-            <div class="hero-content">
-              <div class="hero-badge badge-cyan">
-                <i class="fa-solid fa-layer-group"></i> Software Consultancy &amp; Product Studio
-              </div>
+        <!-- ─── SLIDE 1: Software Consultancy ─── -->
+        <div class="hero-slide hero-slide-fw active" id="slide-consultancy" data-index="0">
+          <div class="hero-kicker-badge badge-cyan">
+            <span class="badge-pulse cyan"></span>
+            Software Consultancy &amp; Products
+          </div>
 
-              <h1 class="hero-title">We Build Software.<br><span class="gradient-text">We Launch Products.</span></h1>
+          <h1 class="hero-title-fw">
+            We Build Software<br>
+            <span class="gradient-text">That Scales.</span>
+          </h1>
 
-              <p class="hero-subtitle">
-                Engineering custom software solutions, AI architectures, and proprietary digital products that scale
-                your business.
-              </p>
+          <p class="hero-subtitle-fw">
+            End-to-end product engineering, AI integration, and cloud-native solutions — from idea to production.
+          </p>
 
-              <div class="hero-cta">
-                <a href="consultancy.html" class="btn btn-primary">Explore Consultancy &rarr;</a>
-                <a href="enquiry.html" class="btn btn-outline">Start a Project</a>
-              </div>
-            </div>
+          <div class="hero-pills">
+            <span class="hero-pill"><i class="fa-solid fa-code"></i> Custom Development</span>
+            <span class="hero-pill"><i class="fa-solid fa-brain"></i> AI &amp; ML</span>
+            <span class="hero-pill"><i class="fa-solid fa-cubes"></i> SaaS Products</span>
+            <span class="hero-pill"><i class="fa-solid fa-cloud"></i> Cloud Architecture</span>
+          </div>
 
-            <!-- Visual Graphic Card for Consultancy -->
-            <div class="hero-visual">
-              <div class="hero-card-v2 consultancy-card">
-                <div class="card-glow"></div>
-                <div class="v2-card-header">
-                  <span class="v2-badge"><i class="fa-solid fa-bolt"></i> Production-Grade Engineering</span>
-                </div>
-                <div class="v2-pillars">
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-code-branch"></i>
-                    <div>
-                      <strong>Custom Software Engineering</strong>
-                      <span>Full-stack web applications, microservices &amp; cloud</span>
-                    </div>
-                  </div>
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-brain"></i>
-                    <div>
-                      <strong>AI Systems &amp; Automation</strong>
-                      <span>LLMs, intelligent pipelines &amp; enterprise workflows</span>
-                    </div>
-                  </div>
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-cubes"></i>
-                    <div>
-                      <strong>In-House Digital Products</strong>
-                      <span>Proprietary SaaS platforms, frameworks &amp; developer tools</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="hero-cta-row">
+            <a href="enquiry.html" class="btn btn-primary btn-glow">
+              <i class="fa-solid fa-comments"></i> Consult Us
+            </a>
+            <a href="consultancy.html" class="btn btn-outline">
+              Our Services <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
 
-        <!-- ─── BANNER 2: Technical Education & Academy (SECOND) ─── -->
-        <div class="hero-slide" id="slide-education" data-index="1">
-          <div class="hero-grid">
-            <div class="hero-content">
-              <div class="hero-badge badge-purple">
-                <i class="fa-solid fa-graduation-cap"></i> Technical Education &amp; Academy
-              </div>
+        <!-- ─── SLIDE 2: Scalension Academy ─── -->
+        <div class="hero-slide hero-slide-fw" id="slide-education" data-index="1">
+          <div class="hero-kicker-badge badge-purple">
+            <span class="badge-pulse purple"></span>
+            Scalension Academy
+          </div>
 
-              <h1 class="hero-title">Master Tech.<br><span class="gradient-text">Shape the Future.</span></h1>
+          <h1 class="hero-title-fw">
+            Learn From Practitioners.<br>
+            <span class="gradient-text">Build Real Projects.</span>
+          </h1>
 
-              <p class="hero-subtitle">
-                Expert-led academy programs in AI, Web Development, Cloud, and DevOps — built for tomorrow's engineering
-                leaders.
-              </p>
+          <p class="hero-subtitle-fw">
+            Industry-led programs in AI, Full-Stack, Cloud &amp; DevOps — with mentorship and capstone projects.
+          </p>
 
-              <div class="hero-cta">
-                <a href="courses.html" class="btn btn-primary">Browse Academy Programs &rarr;</a>
-                <a href="enquiry.html" class="btn btn-outline">Enquire Now</a>
-              </div>
-            </div>
+          <div class="hero-pills">
+            <span class="hero-pill"><i class="fa-solid fa-graduation-cap"></i> Expert-Led</span>
+            <span class="hero-pill"><i class="fa-solid fa-laptop-code"></i> Hands-On Labs</span>
+            <span class="hero-pill"><i class="fa-solid fa-certificate"></i> Certification</span>
+            <span class="hero-pill"><i class="fa-solid fa-user-check"></i> 1-on-1 Mentorship</span>
+          </div>
 
-            <!-- Visual Graphic Card for Academy -->
-            <div class="hero-visual">
-              <div class="hero-card-v2 academy-card">
-                <div class="card-glow purple"></div>
-                <div class="v2-card-header">
-                  <span class="v2-badge purple"><i class="fa-solid fa-award"></i> Practitioner Academy</span>
-                </div>
-                <div class="v2-academy-stats">
-                  <div class="acad-stat">
-                    <span class="stat-val">6+</span>
-                    <span class="stat-lbl">Core Programs</span>
-                  </div>
-                  <div class="acad-stat">
-                    <span class="stat-val">44+</span>
-                    <span class="stat-lbl">Modules</span>
-                  </div>
-                  <div class="acad-stat">
-                    <span class="stat-val">100%</span>
-                    <span class="stat-lbl">Project-Driven</span>
-                  </div>
-                </div>
-                <div class="v2-pillars">
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-robot"></i>
-                    <div>
-                      <strong>AI &amp; Machine Learning Track</strong>
-                      <span>Python, Neural Networks &amp; LLM deployments</span>
-                    </div>
-                  </div>
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-cloud"></i>
-                    <div>
-                      <strong>DevOps &amp; Cloud Infrastructure</strong>
-                      <span>AWS, Docker, Kubernetes &amp; CI/CD pipelines</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="hero-cta-row">
+            <a href="courses.html" class="btn btn-primary btn-glow">
+              <i class="fa-solid fa-compass"></i> Explore Courses
+            </a>
+            <a href="enquiry.html" class="btn btn-outline">
+              <i class="fa-solid fa-calendar-check"></i> Book Free Session
+            </a>
           </div>
         </div>
 
       </div>
 
-      <!-- Clean Controls -->
-      <div class="hero-controls-v2">
-        <button class="nav-arrow prev-slide" aria-label="Previous Slide"><i class="fa-solid fa-arrow-left"></i></button>
-        <div class="slide-dots-v2">
-          <span class="dot-v2 active" data-slide="0"></span>
-          <span class="dot-v2" data-slide="1"></span>
+      <!-- Progress bar + navigation -->
+      <div class="hero-nav-bar">
+        <button class="hero-nav-arrow prev-slide" aria-label="Previous">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="hero-progress-track">
+          <div class="hero-progress-segment active" data-slide="0">
+            <span class="progress-fill"></span>
+          </div>
+          <div class="hero-progress-segment" data-slide="1">
+            <span class="progress-fill"></span>
+          </div>
         </div>
-        <button class="nav-arrow next-slide" aria-label="Next Slide"><i class="fa-solid fa-arrow-right"></i></button>
+
+        <button class="hero-nav-arrow next-slide" aria-label="Next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       STATS BAR
-  ═══════════════════════════════════════ -->
-  <div class="stats-bar">
-    <div class="container">
-      <div class="stats-grid stagger-group">
-        <div class="stat-item">
-          <div class="stat-number">6+</div>
-          <div class="stat-label">Courses Available</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">44</div>
-          <div class="stat-label">Structured Modules</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">5</div>
-          <div class="stat-label">Tech Domains</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Project-Driven</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ═══════════════════════════════════════
        FEATURED COURSES
@@ -324,8 +265,7 @@
   <!-- ═══════════════════════════════════════
        LEARNING TRACKS
   ═══════════════════════════════════════ -->
-  <section class="section"
-    style="background: rgba(124,58,237,0.03); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Learning Paths</span>
@@ -472,8 +412,7 @@
   <!-- ═══════════════════════════════════════
        TESTIMONIALS
   ═══════════════════════════════════════ -->
-  <section class="section"
-    style="background: rgba(124,58,237,0.03); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Reviews</span>
