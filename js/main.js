@@ -208,6 +208,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ─── Hero Banner Slider (Consultancy + Academy) ── */
+  const heroSlider = document.querySelector('.hero-slider-container');
+  if (heroSlider) {
+    const slides  = heroSlider.querySelectorAll('.hero-slide');
+    const dots    = heroSlider.querySelectorAll('.dot-v2');
+    const prevBtn = heroSlider.querySelector('.prev-slide');
+    const nextBtn = heroSlider.querySelector('.next-slide');
+    let currentIndex = 0;
+    let autoSlideTimer = null;
+
+    const goToSlide = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    };
+
+    const nextSlide = () => goToSlide(currentIndex + 1);
+    const prevSlide = () => goToSlide(currentIndex - 1);
+
+    const startAutoSlide = () => {
+      stopAutoSlide();
+      autoSlideTimer = setInterval(nextSlide, 4500);
+    };
+
+    const stopAutoSlide = () => {
+      if (autoSlideTimer) clearInterval(autoSlideTimer);
+    };
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.dataset.slide, 10);
+        goToSlide(idx);
+        startAutoSlide();
+      });
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      prevSlide();
+      startAutoSlide();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      nextSlide();
+      startAutoSlide();
+    });
+
+    // Start auto-rotation on load
+    goToSlide(0);
+    startAutoSlide();
+  }
+
 });
 
 
