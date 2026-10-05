@@ -27,13 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─── Mobile menu ───────────────────────── */
-  const menuToggle   = document.querySelector('.menu-toggle');
-  const mobileNav    = document.querySelector('.mobile-nav');
-  const mobileOverlay= document.querySelector('.mobile-overlay');
-  const mobileClose  = document.querySelector('.mobile-nav-close');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const mobileOverlay = document.querySelector('.mobile-overlay');
+  const mobileClose = document.querySelector('.mobile-nav-close');
 
-  const openMenu  = () => { mobileNav?.classList.add('open');    mobileOverlay?.classList.add('open'); };
-  const closeMenu = () => { mobileNav?.classList.remove('open'); mobileOverlay?.classList.remove('open'); };
+  const openMenu = () => {
+    mobileNav?.classList.add('open');
+    mobileOverlay?.classList.add('open');
+    menuToggle?.setAttribute('aria-expanded', 'true');
+  };
+  const closeMenu = () => {
+    mobileNav?.classList.remove('open');
+    mobileOverlay?.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+  };
 
   menuToggle?.addEventListener('click', openMenu);
   mobileClose?.addEventListener('click', closeMenu);
@@ -41,10 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── Active nav link ────────────────────── */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .mobile-nav a[href]').forEach(link => {
+  document.querySelectorAll('.nav-links a, .nav-cta[href], .mobile-nav a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
 
@@ -72,10 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   /* ─── Course category filter (courses.html) ─ */
-  const filterSelect   = document.getElementById('course-filter-select');
+  const filterSelect = document.getElementById('course-filter-select');
   const clearFilterBtn = document.getElementById('clear-filter-btn');
-  const resultsCount   = document.getElementById('filter-results-count');
-  const courseGroups   = document.querySelectorAll('.course-group');
+  const resultsCount = document.getElementById('filter-results-count');
+  const courseGroups = document.querySelectorAll('.course-group');
 
   if (filterSelect && courseGroups.length) {
     const updateFilter = (filterVal) => {
@@ -120,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── Roadmap accordion ─────────────────── */
   document.querySelectorAll('.course-card').forEach(card => {
-    const btn       = card.querySelector('.roadmap-toggle-btn');
+    const btn = card.querySelector('.roadmap-toggle-btn');
     const toggleTxt = card.querySelector('.toggle-text');
     const toggleIco = card.querySelector('.toggle-icon');
 
@@ -151,11 +160,87 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ─── Enquiry form ───────────────────────── */
-  const form        = document.getElementById('enquiry-form');
+  const form = document.getElementById('enquiry-form');
   const formWrapper = document.querySelector('.form-wrapper');
   const formSuccess = document.querySelector('.form-success');
 
   if (form) {
+    const intentSelect = form.querySelector('#enquiry-type');
+    const appointmentFields = form.querySelector('#appointment-fields');
+    const courseFields = form.querySelector('#course-fields');
+    const serviceFields = form.querySelector('#service-fields');
+    const preferredDate = form.querySelector('#preferred-date');
+    const preferredTime = form.querySelector('#preferred-time');
+    const courseInterest = form.querySelector('#course-interest');
+    const serviceInterest = form.querySelector('#service-interest');
+    const phone = form.querySelector('#phone');
+    const phoneHint = form.querySelector('#phone-hint');
+
+    const setGroupVisible = (group, visible) => {
+      if (!group) return;
+      group.hidden = !visible;
+      group.querySelectorAll('input, select, textarea').forEach(control => {
+        control.disabled = !visible;
+      });
+    };
+
+    const updateIntentFields = () => {
+      const intent = intentSelect?.value;
+      const isAppointment = intent === 'software-consultation' || intent === 'student-guidance';
+      const needsCourse = intent === 'student-guidance' || intent === 'course-enquiry';
+      const needsService = intent === 'software-consultation' || intent === 'software-enquiry';
+
+      setGroupVisible(appointmentFields, isAppointment);
+      setGroupVisible(courseFields, needsCourse);
+      setGroupVisible(serviceFields, needsService);
+      if (preferredDate) preferredDate.required = isAppointment;
+      if (preferredTime) preferredTime.required = isAppointment;
+      if (courseInterest) courseInterest.required = intent === 'course-enquiry';
+      if (serviceInterest) serviceInterest.required = intent === 'software-enquiry';
+    };
+
+    const validIntents = new Set([
+      'software-consultation',
+      'student-guidance',
+      'software-enquiry',
+      'course-enquiry'
+    ]);
+    const enquiryParams = new URLSearchParams(window.location.search);
+    const requestedIntent = enquiryParams.get('intent');
+    const requestedService = enquiryParams.get('service');
+    if (intentSelect && validIntents.has(requestedIntent)) {
+      intentSelect.value = requestedIntent;
+    }
+    intentSelect?.addEventListener('change', updateIntentFields);
+    updateIntentFields();
+    if (serviceInterest && [
+      'product-discovery',
+      'software-development',
+      'ai-ml-development',
+      'devops-cloud',
+      'qa-testing',
+      'support-evolution',
+      'digital-marketing',
+      'software-product',
+      'other'
+    ].includes(requestedService)) {
+      serviceInterest.value = requestedService;
+    }
+
+    const marketingChoices = Array.from(form.querySelectorAll('input[name^="marketing"]'));
+    const whatsappMarketingChoices = marketingChoices.filter(choice => choice.name.endsWith('WhatsApp'));
+    const updatePhoneRequirement = () => {
+      const needsPhone = Array.from(whatsappMarketingChoices).some(choice => choice.checked);
+      if (phone) phone.required = needsPhone;
+      if (phoneHint) phoneHint.textContent = needsPhone
+        ? '(required for WhatsApp updates)'
+        : '(optional)';
+    };
+    whatsappMarketingChoices.forEach(choice => {
+      choice.addEventListener('change', updatePhoneRequirement);
+    });
+    updatePhoneRequirement();
+
     form.addEventListener('submit', e => {
       e.preventDefault();
       const submitBtn = form.querySelector('.form-submit');
@@ -175,19 +260,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const formData = new FormData(form);
+      marketingChoices.forEach(choice => {
+        formData.set(choice.name, choice.checked ? 'yes' : 'no');
+      });
 
       fetch(actionUrl, {
         method: 'POST',
         body: formData,
         mode: 'no-cors'
       })
-      .then(() => {
-        showSuccess();
-      })
-      .catch(err => {
-        console.error('Submission error:', err);
-        showSuccess();
-      });
+        .then(() => {
+          showSuccess();
+        })
+        .catch(err => {
+          console.error('Submission error:', err);
+          showSuccess();
+        });
     });
   }
 
@@ -211,12 +299,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── Hero Banner Slider (Consultancy + Academy) ── */
   const heroSlider = document.querySelector('.hero-slider-container');
   if (heroSlider) {
-    const slides  = heroSlider.querySelectorAll('.hero-slide');
-    const dots    = heroSlider.querySelectorAll('.dot-v2');
+    const slides = heroSlider.querySelectorAll('.hero-slide');
+    const segments = heroSlider.querySelectorAll('.hero-progress-segment');
     const prevBtn = heroSlider.querySelector('.prev-slide');
     const nextBtn = heroSlider.querySelector('.next-slide');
     let currentIndex = 0;
     let autoSlideTimer = null;
+    const SLIDE_DURATION = 6000; // matches CSS progressSweep
 
     const goToSlide = (index) => {
       currentIndex = (index + slides.length) % slides.length;
@@ -225,8 +314,16 @@ document.addEventListener('DOMContentLoaded', () => {
         slide.classList.toggle('active', i === currentIndex);
       });
 
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
+      // Restart progress bar animation
+      segments.forEach((seg, i) => {
+        const fill = seg.querySelector('.progress-fill');
+        seg.classList.toggle('active', i === currentIndex);
+        if (fill) {
+          // Force restart animation
+          fill.style.animation = 'none';
+          fill.offsetHeight; // trigger reflow
+          fill.style.animation = '';
+        }
       });
     };
 
@@ -235,16 +332,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const startAutoSlide = () => {
       stopAutoSlide();
-      autoSlideTimer = setInterval(nextSlide, 4500);
+      autoSlideTimer = setInterval(nextSlide, SLIDE_DURATION);
     };
 
     const stopAutoSlide = () => {
       if (autoSlideTimer) clearInterval(autoSlideTimer);
     };
 
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const idx = parseInt(dot.dataset.slide, 10);
+    segments.forEach(seg => {
+      seg.addEventListener('click', () => {
+        const idx = parseInt(seg.dataset.slide, 10);
         goToSlide(idx);
         startAutoSlide();
       });
@@ -260,7 +357,11 @@ document.addEventListener('DOMContentLoaded', () => {
       startAutoSlide();
     });
 
-    // Start auto-rotation on load
+    // Pause on hover, resume on leave
+    heroSlider.addEventListener('mouseenter', stopAutoSlide);
+    heroSlider.addEventListener('mouseleave', startAutoSlide);
+
+    // Start
     goToSlide(0);
     startAutoSlide();
   }
