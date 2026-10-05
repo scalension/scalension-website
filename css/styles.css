@@ -3091,7 +3091,10 @@ button {
 .form-group {
   margin-bottom: 20px;
 }
-.form-group[hidden] { display: none; }
+
+.form-group[hidden] {
+  display: none;
+}
 
 .form-sub-label {
   margin-top: 16px;
@@ -3170,9 +3173,17 @@ select.form-select {
   line-height: 1.55;
 }
 
-.consent-intro { margin: 0 0 8px; }
-.consent-note { margin: 12px 0 0; }
-.consent-note a { color: var(--color-primary-lt); }
+.consent-intro {
+  margin: 0 0 8px;
+}
+
+.consent-note {
+  margin: 12px 0 0;
+}
+
+.consent-note a {
+  color: var(--color-primary-lt);
+}
 
 .consent-option {
   display: grid;
