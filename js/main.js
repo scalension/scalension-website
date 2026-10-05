@@ -213,7 +213,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     intentSelect?.addEventListener('change', updateIntentFields);
     updateIntentFields();
-    if (serviceInterest && ['software-development', 'software-product', 'digital-marketing', 'other'].includes(requestedService)) {
+    if (serviceInterest && [
+      'product-discovery',
+      'software-development',
+      'ai-ml-development',
+      'devops-cloud',
+      'qa-testing',
+      'support-evolution',
+      'digital-marketing',
+      'software-product',
+      'other'
+    ].includes(requestedService)) {
       serviceInterest.value = requestedService;
     }
 
