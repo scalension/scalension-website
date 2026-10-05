@@ -1685,7 +1685,7 @@ button {
 
 .company-about-section,
 .home-services-section,
-.academy-section > .section {
+.academy-section>.section {
   padding-top: 72px;
   padding-bottom: 72px;
 }
@@ -1708,7 +1708,7 @@ button {
   line-height: 1.12;
 }
 
-.company-about-copy > p {
+.company-about-copy>p {
   max-width: 520px;
   margin: 0;
   line-height: 1.75;
@@ -1791,9 +1791,10 @@ button {
 }
 
 @media (max-width: 768px) {
+
   .company-about-section,
   .home-services-section,
-  .academy-section > .section {
+  .academy-section>.section {
     padding-top: 48px;
     padding-bottom: 48px;
   }
