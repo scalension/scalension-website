@@ -165,6 +165,67 @@ document.addEventListener('DOMContentLoaded', () => {
   const formSuccess = document.querySelector('.form-success');
 
   if (form) {
+    const intentSelect = form.querySelector('#enquiry-type');
+    const appointmentFields = form.querySelector('#appointment-fields');
+    const courseFields = form.querySelector('#course-fields');
+    const serviceFields = form.querySelector('#service-fields');
+    const preferredDate = form.querySelector('#preferred-date');
+    const preferredTime = form.querySelector('#preferred-time');
+    const courseInterest = form.querySelector('#course-interest');
+    const serviceInterest = form.querySelector('#service-interest');
+    const phone = form.querySelector('#phone');
+    const phoneHint = form.querySelector('#phone-hint');
+
+    const setGroupVisible = (group, visible) => {
+      if (!group) return;
+      group.hidden = !visible;
+      group.querySelectorAll('input, select, textarea').forEach(control => {
+        control.disabled = !visible;
+      });
+    };
+
+    const updateIntentFields = () => {
+      const intent = intentSelect?.value;
+      const isAppointment = intent === 'software-consultation' || intent === 'student-guidance';
+      const needsCourse = intent === 'student-guidance' || intent === 'course-enquiry';
+      const needsService = intent === 'software-consultation' || intent === 'software-enquiry';
+
+      setGroupVisible(appointmentFields, isAppointment);
+      setGroupVisible(courseFields, needsCourse);
+      setGroupVisible(serviceFields, needsService);
+      if (preferredDate) preferredDate.required = isAppointment;
+      if (preferredTime) preferredTime.required = isAppointment;
+      if (courseInterest) courseInterest.required = intent === 'course-enquiry';
+      if (serviceInterest) serviceInterest.required = intent === 'software-enquiry';
+    };
+
+    const validIntents = new Set([
+      'software-consultation',
+      'student-guidance',
+      'software-enquiry',
+      'course-enquiry'
+    ]);
+    const requestedIntent = new URLSearchParams(window.location.search).get('intent');
+    if (intentSelect && validIntents.has(requestedIntent)) {
+      intentSelect.value = requestedIntent;
+    }
+    intentSelect?.addEventListener('change', updateIntentFields);
+    updateIntentFields();
+
+    const marketingChoices = Array.from(form.querySelectorAll('input[name^="marketing"]'));
+    const whatsappMarketingChoices = marketingChoices.filter(choice => choice.name.endsWith('WhatsApp'));
+    const updatePhoneRequirement = () => {
+      const needsPhone = Array.from(whatsappMarketingChoices).some(choice => choice.checked);
+      if (phone) phone.required = needsPhone;
+      if (phoneHint) phoneHint.textContent = needsPhone
+        ? '(required for WhatsApp updates)'
+        : '(optional)';
+    };
+    whatsappMarketingChoices.forEach(choice => {
+      choice.addEventListener('change', updatePhoneRequirement);
+    });
+    updatePhoneRequirement();
+
     form.addEventListener('submit', e => {
       e.preventDefault();
       const submitBtn = form.querySelector('.form-submit');
@@ -184,6 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const formData = new FormData(form);
+      marketingChoices.forEach(choice => {
+        formData.set(choice.name, choice.checked ? 'yes' : 'no');
+      });
 
       fetch(actionUrl, {
         method: 'POST',

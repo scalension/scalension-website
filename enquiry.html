@@ -149,7 +149,19 @@
             <div class="form-wrapper">
               <form id="enquiry-form"
                 action="https://script.google.com/macros/s/AKfycbwDa743XS9aME_-oK95LWPYwVDOLuWeC5IjOV5QIhhCvAqOSS9QahfVJq5-ft35_Hdo1Q/exec"
-                method="POST" novalidate>
+                method="POST">
+                <input type="hidden" name="consentNoticeVersion" value="marketing-v1-2026-10-05" />
+
+                <div class="form-group">
+                  <label class="form-label" for="enquiry-type">What would you like help with?</label>
+                  <select class="form-input" id="enquiry-type" name="enquiryType" required>
+                    <option value="">Choose an enquiry type</option>
+                    <option value="software-consultation">Book a free software consultation</option>
+                    <option value="student-guidance">Book student course guidance</option>
+                    <option value="software-enquiry">Ask about software or digital marketing services</option>
+                    <option value="course-enquiry">Ask about a course</option>
+                  </select>
+                </div>
 
                 <div class="form-group">
                   <label class="form-label" for="name">Full Name</label>
@@ -163,17 +175,76 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label" for="phone">Phone Number <span
+                    <label class="form-label" for="phone">Phone Number <span id="phone-hint"
                       style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
                   <input class="form-input" type="tel" id="phone" name="phone" placeholder="+91 300 0000000" />
+                </div>
+
+                <div class="form-group" id="appointment-fields" hidden>
+                  <label class="form-label" for="preferred-date">Preferred date for your free session</label>
+                  <input class="form-input" type="date" id="preferred-date" name="preferredDate" disabled />
+                  <label class="form-label form-sub-label" for="preferred-time">Preferred time</label>
+                  <select class="form-input" id="preferred-time" name="preferredTime" disabled>
+                    <option value="">Choose a time</option>
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="evening">Evening</option>
+                  </select>
+                </div>
+
+                <div class="form-group" id="course-fields" hidden>
+                  <label class="form-label" for="course-interest">Course or learning area</label>
+                  <input class="form-input" type="text" id="course-interest" name="courseInterest"
+                    placeholder="For example: AI &amp; ML, Full Stack, or DevOps" disabled />
+                </div>
+
+                <div class="form-group" id="service-fields" hidden>
+                  <label class="form-label" for="service-interest">Service you are interested in</label>
+                  <select class="form-input" id="service-interest" name="serviceInterest" disabled>
+                    <option value="">Choose a service</option>
+                    <option value="software-development">Software development</option>
+                    <option value="digital-marketing">Digital marketing</option>
+                    <option value="software-product">Software product or SaaS</option>
+                    <option value="other">Other</option>
+                  </select>
                 </div>
 
                 <div class="form-group">
                   <label class="form-label" for="message">Message</label>
                   <textarea class="form-textarea" id="message" name="message"
-                    placeholder="Tell us what you're looking for — a specific course, a consulting project, or anything else…"
+                    placeholder="Tell us a little more about what you need…"
                     required></textarea>
                 </div>
+
+                <fieldset class="marketing-consent">
+                  <legend>Optional marketing updates</legend>
+                  <p class="consent-intro">Choose exactly which updates you want and where you want to receive them. These choices are optional and do not affect your enquiry.</p>
+                  <label class="consent-option">
+                    <input type="checkbox" name="marketingCoursesEmail" value="yes" />
+                    <span>Email me Scalension Academy course updates, new batches, learning resources, and offers.</span>
+                  </label>
+                  <label class="consent-option">
+                    <input type="checkbox" name="marketingCoursesWhatsApp" value="yes" />
+                    <span>Send me those Scalension Academy updates and offers on WhatsApp.</span>
+                  </label>
+                  <label class="consent-option">
+                    <input type="checkbox" name="marketingSoftwareEmail" value="yes" />
+                    <span>Email me about Scalension software development services and related offers.</span>
+                  </label>
+                  <label class="consent-option">
+                    <input type="checkbox" name="marketingSoftwareWhatsApp" value="yes" />
+                    <span>Send me software development service updates and offers on WhatsApp.</span>
+                  </label>
+                  <label class="consent-option">
+                    <input type="checkbox" name="marketingDigitalMarketingEmail" value="yes" />
+                    <span>Email me about Scalension digital marketing services and related offers.</span>
+                  </label>
+                  <label class="consent-option">
+                    <input type="checkbox" name="marketingDigitalMarketingWhatsApp" value="yes" />
+                    <span>Send me digital marketing service updates and offers on WhatsApp.</span>
+                  </label>
+                  <p class="consent-note">We use your details to respond to this request. Promotional messages are sent only for the topics and channels you select. You can withdraw your marketing consent by contacting <a href="mailto:contact@scalension.com">contact@scalension.com</a>.</p>
+                </fieldset>
 
                 <button type="submit" class="btn btn-primary form-submit">
                   Send Message &rarr;
