@@ -205,12 +205,17 @@ document.addEventListener('DOMContentLoaded', () => {
       'software-enquiry',
       'course-enquiry'
     ]);
-    const requestedIntent = new URLSearchParams(window.location.search).get('intent');
+    const enquiryParams = new URLSearchParams(window.location.search);
+    const requestedIntent = enquiryParams.get('intent');
+    const requestedService = enquiryParams.get('service');
     if (intentSelect && validIntents.has(requestedIntent)) {
       intentSelect.value = requestedIntent;
     }
     intentSelect?.addEventListener('change', updateIntentFields);
     updateIntentFields();
+    if (serviceInterest && ['software-development', 'software-product', 'digital-marketing', 'other'].includes(requestedService)) {
+      serviceInterest.value = requestedService;
+    }
 
     const marketingChoices = Array.from(form.querySelectorAll('input[name^="marketing"]'));
     const whatsappMarketingChoices = marketingChoices.filter(choice => choice.name.endsWith('WhatsApp'));

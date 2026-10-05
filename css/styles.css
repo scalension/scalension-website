@@ -1675,6 +1675,144 @@ button {
 }
 
 /* ============================================
+   HOME — Company Introduction
+   ============================================ */
+.company-about-section,
+.home-services-section,
+.academy-section {
+  scroll-margin-top: 88px;
+}
+
+.company-about-section,
+.home-services-section,
+.academy-section > .section {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.company-about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.company-about-copy {
+  max-width: 540px;
+}
+
+.company-about-copy h2 {
+  max-width: 520px;
+  margin: 0 0 20px;
+  font-size: 2.45rem;
+  line-height: 1.12;
+}
+
+.company-about-copy > p {
+  max-width: 520px;
+  margin: 0;
+  line-height: 1.75;
+}
+
+.company-vision {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.company-vision .section-label {
+  margin-bottom: 8px;
+}
+
+.company-vision p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.company-about-visual {
+  min-width: 0;
+  margin: 0;
+}
+
+.company-about-visual img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.company-about-visual figcaption {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.home-services-section .section-header {
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.home-services-section .service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 270px;
+}
+
+.home-services-section .service-icon {
+  color: var(--color-accent-lt);
+}
+
+.home-services-section .service-desc {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.service-link {
+  color: var(--color-primary-lt);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.service-link:hover {
+  color: var(--color-accent-lt);
+}
+
+.academy-section .section-header {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .company-about-section,
+  .home-services-section,
+  .academy-section > .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .company-about-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .company-about-copy h2 {
+    font-size: 2rem;
+  }
+
+  .home-services-section .service-card {
+    min-height: 0;
+  }
+}
+
+/* ============================================
    HOME — Featured Courses (3 cards)
    ============================================ */
 .featured-grid {
