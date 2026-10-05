@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─── Mobile menu ───────────────────────── */
-  const menuToggle   = document.querySelector('.menu-toggle');
-  const mobileNav    = document.querySelector('.mobile-nav');
-  const mobileOverlay= document.querySelector('.mobile-overlay');
-  const mobileClose  = document.querySelector('.mobile-nav-close');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const mobileOverlay = document.querySelector('.mobile-overlay');
+  const mobileClose = document.querySelector('.mobile-nav-close');
 
   const openMenu = () => {
     mobileNav?.classList.add('open');
@@ -81,10 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   /* ─── Course category filter (courses.html) ─ */
-  const filterSelect   = document.getElementById('course-filter-select');
+  const filterSelect = document.getElementById('course-filter-select');
   const clearFilterBtn = document.getElementById('clear-filter-btn');
-  const resultsCount   = document.getElementById('filter-results-count');
-  const courseGroups   = document.querySelectorAll('.course-group');
+  const resultsCount = document.getElementById('filter-results-count');
+  const courseGroups = document.querySelectorAll('.course-group');
 
   if (filterSelect && courseGroups.length) {
     const updateFilter = (filterVal) => {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── Roadmap accordion ─────────────────── */
   document.querySelectorAll('.course-card').forEach(card => {
-    const btn       = card.querySelector('.roadmap-toggle-btn');
+    const btn = card.querySelector('.roadmap-toggle-btn');
     const toggleTxt = card.querySelector('.toggle-text');
     const toggleIco = card.querySelector('.toggle-icon');
 
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ─── Enquiry form ───────────────────────── */
-  const form        = document.getElementById('enquiry-form');
+  const form = document.getElementById('enquiry-form');
   const formWrapper = document.querySelector('.form-wrapper');
   const formSuccess = document.querySelector('.form-success');
 
@@ -190,13 +190,13 @@ document.addEventListener('DOMContentLoaded', () => {
         body: formData,
         mode: 'no-cors'
       })
-      .then(() => {
-        showSuccess();
-      })
-      .catch(err => {
-        console.error('Submission error:', err);
-        showSuccess();
-      });
+        .then(() => {
+          showSuccess();
+        })
+        .catch(err => {
+          console.error('Submission error:', err);
+          showSuccess();
+        });
     });
   }
 
@@ -220,10 +220,10 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── Hero Banner Slider (Consultancy + Academy) ── */
   const heroSlider = document.querySelector('.hero-slider-container');
   if (heroSlider) {
-    const slides     = heroSlider.querySelectorAll('.hero-slide');
-    const segments   = heroSlider.querySelectorAll('.hero-progress-segment');
-    const prevBtn    = heroSlider.querySelector('.prev-slide');
-    const nextBtn    = heroSlider.querySelector('.next-slide');
+    const slides = heroSlider.querySelectorAll('.hero-slide');
+    const segments = heroSlider.querySelectorAll('.hero-progress-segment');
+    const prevBtn = heroSlider.querySelector('.prev-slide');
+    const nextBtn = heroSlider.querySelector('.next-slide');
     let currentIndex = 0;
     let autoSlideTimer = null;
     const SLIDE_DURATION = 6000; // matches CSS progressSweep
