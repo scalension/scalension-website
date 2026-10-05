@@ -29,62 +29,38 @@
   <!-- ═══════════════════════════════════════
        NAVBAR
   ═══════════════════════════════════════ -->
-  <nav class="navbar scrolled">
+  <nav class="navbar scrolled" aria-label="Primary navigation">
     <div class="container">
       <a href="index.html" class="logo">Scalen<span class="logo-accent">sion</span></a>
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
-        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="consultancy.html">Services</a></li>
         <li><a href="careers.html">Careers</a></li>
-        <li><a href="enquiry.html" class="active">Enquiry</a></li>
       </ul>
 
-      <div class="nav-social">
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer"
-          aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-            class="fa-brands fa-github"></i></a>
-        <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank"
-          rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer"
-          aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+      <div class="nav-actions">
         <button type="button" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
           <i class="fa-solid fa-moon icon-moon"></i>
           <i class="fa-solid fa-sun icon-sun"></i>
         </button>
+        <a href="enquiry.html" class="nav-cta">Enquire</a>
       </div>
 
-      <button class="menu-toggle" aria-label="Open menu">&#9776;</button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-navigation">&#9776;</button>
     </div>
   </nav>
 
   <!-- Mobile Drawer -->
   <div class="mobile-overlay"></div>
-  <nav class="mobile-nav">
-    <button class="mobile-nav-close">&#10005;</button>
+  <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
     <a href="index.html">Home</a>
     <a href="courses.html">Courses</a>
-    <a href="consultancy.html">Consultancy</a>
+    <a href="consultancy.html">Services</a>
     <a href="careers.html">Careers</a>
-    <a href="enquiry.html">Enquiry</a>
-    <div class="mobile-social">
-      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer"
-        aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-          class="fa-brands fa-github"></i></a>
-      <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank"
-        rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer"
-        aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
-      <button type="button" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
-        <i class="fa-solid fa-moon icon-moon"></i>
-        <i class="fa-solid fa-sun icon-sun"></i>
-      </button>
-    </div>
+    <a href="enquiry.html" class="mobile-nav-cta">Enquire</a>
   </nav>
 
   <!-- ═══════════════════════════════════════
@@ -143,10 +119,6 @@
           </div>
 
           <div style="margin-top: 36px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a href="#" aria-label="LinkedIn"
-              style="color:var(--text-muted); font-size:1.1rem; transition:var(--transition);"
-              onmouseover="this.style.color='var(--color-primary-lt)'"
-              onmouseout="this.style.color='var(--text-muted)'"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer"
               aria-label="YouTube" style="color:var(--text-muted); font-size:1.1rem; transition:var(--transition);"
               onmouseover="this.style.color='var(--color-primary-lt)'"
@@ -235,7 +207,6 @@
           <a href="index.html" class="logo">Scalen<span class="logo-accent">sion</span></a>
           <p class="footer-tagline">Expert-led courses and AI consultancy — built for the builders of tomorrow.</p>
           <div class="footer-social">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer"
               aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
             <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"

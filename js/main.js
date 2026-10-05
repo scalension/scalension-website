@@ -32,8 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileOverlay= document.querySelector('.mobile-overlay');
   const mobileClose  = document.querySelector('.mobile-nav-close');
 
-  const openMenu  = () => { mobileNav?.classList.add('open');    mobileOverlay?.classList.add('open'); };
-  const closeMenu = () => { mobileNav?.classList.remove('open'); mobileOverlay?.classList.remove('open'); };
+  const openMenu = () => {
+    mobileNav?.classList.add('open');
+    mobileOverlay?.classList.add('open');
+    menuToggle?.setAttribute('aria-expanded', 'true');
+  };
+  const closeMenu = () => {
+    mobileNav?.classList.remove('open');
+    mobileOverlay?.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+  };
 
   menuToggle?.addEventListener('click', openMenu);
   mobileClose?.addEventListener('click', closeMenu);
@@ -41,10 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── Active nav link ────────────────────── */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .mobile-nav a[href]').forEach(link => {
+  document.querySelectorAll('.nav-links a, .nav-cta[href], .mobile-nav a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
 
