@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script>
-    (function() {
+    (function () {
       const stored = localStorage.getItem('theme');
       if (stored) {
         document.documentElement.setAttribute('data-theme', stored);
@@ -29,102 +29,119 @@
   <!-- ═══════════════════════════════════════
        NAVBAR
   ═══════════════════════════════════════ -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Primary navigation">
     <div class="container">
       <a href="index.html" class="logo">Scalen<span class="logo-accent">sion</span></a>
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html" class="active">Courses</a></li>
-        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="consultancy.html">Services</a></li>
         <li><a href="careers.html">Careers</a></li>
-        <li><a href="enquiry.html">Enquiry</a></li>
-        <li><a href="free-session.html" class="nav-free-session">Free Guidance <span class="nav-tag-free">FREE</span></a></li>
       </ul>
 
-      <div class="nav-social">
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+      <div class="nav-actions">
         <button type="button" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
           <i class="fa-solid fa-moon icon-moon"></i>
           <i class="fa-solid fa-sun icon-sun"></i>
         </button>
+        <a href="enquiry.html" class="nav-cta">Enquire</a>
       </div>
 
-      <button class="menu-toggle" aria-label="Open menu">&#9776;</button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"
+        aria-controls="mobile-navigation">&#9776;</button>
     </div>
   </nav>
 
   <!-- Mobile Drawer -->
   <div class="mobile-overlay"></div>
-  <nav class="mobile-nav">
-    <button class="mobile-nav-close">&#10005;</button>
+  <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
     <a href="index.html">Home</a>
     <a href="courses.html">Courses</a>
-    <a href="consultancy.html">Consultancy</a>
+    <a href="consultancy.html">Services</a>
     <a href="careers.html">Careers</a>
-    <a href="enquiry.html">Enquiry</a>
-    <a href="free-session.html" class="mobile-free-session">💡 Free Guidance Session <span class="nav-tag-free">FREE</span></a>
-    <div class="mobile-social">
-      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
-      <button type="button" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
-        <i class="fa-solid fa-moon icon-moon"></i>
-        <i class="fa-solid fa-sun icon-sun"></i>
-      </button>
-    </div>
+    <a href="enquiry.html" class="mobile-nav-cta">Enquire</a>
   </nav>
 
   <!-- ═══════════════════════════════════════
-       PAGE HERO
+       COURSES HERO — Immersive Banner
   ═══════════════════════════════════════ -->
-  <div class="page-hero">
-    <div class="page-hero-bg"></div>
-    <div class="page-hero-content">
-      <div class="container">
-        <span class="section-label">Course Catalog</span>
-        <h1>All Courses &amp; <span class="gradient-text">Roadmaps</span></h1>
-        <p>Every course includes a full module index. Expand any course to see exactly what you'll learn, step by step.</p>
-        <div style="margin-top: 18px;">
-          <a href="free-session.html?source=courses_hero_badge" class="free-session-badge" style="text-decoration:none;">
-            <span class="pulse-dot"></span> Unsure which course to pick? Book a Free 1-on-1 Guidance Session &rarr;
-          </a>
+  <section class="courses-hero" id="courses-hero-top">
+    <!-- Animated grid backdrop -->
+    <div class="ch-grid"></div>
+    <!-- Radial glow orbs -->
+    <div class="ch-orb ch-orb-1"></div>
+    <div class="ch-orb ch-orb-2"></div>
+    <div class="ch-orb ch-orb-3"></div>
+
+    <!-- Floating tech badges -->
+    <div class="ch-badge ch-badge-1"><i class="fa-brands fa-python"></i> Python</div>
+    <div class="ch-badge ch-badge-2"><i class="fa-solid fa-brain"></i> AI & ML</div>
+    <div class="ch-badge ch-badge-3"><i class="fa-brands fa-aws"></i> Cloud</div>
+    <div class="ch-badge ch-badge-4"><i class="fa-solid fa-code"></i> Web Dev</div>
+    <div class="ch-badge ch-badge-5"><i class="fa-solid fa-gears"></i> DevOps</div>
+
+    <div class="container ch-content">
+      <!-- Kicker label -->
+      <div class="ch-kicker">
+        <span class="ch-kicker-dot"></span>
+        Scalension Academy
+      </div>
+
+      <!-- Headline -->
+      <h1 class="ch-title">
+        Learn. Build.<br>
+        <span class="ch-title-gradient">Level Up Your Tech Career.</span>
+      </h1>
+
+      <!-- Sub-copy -->
+      <p class="ch-sub">
+        Industry-structured courses with full module roadmaps, hands-on projects,
+        and expert mentorship — everything you need to go from learner to professional.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="ch-actions">
+        <a href="#ai-ml" class="btn btn-primary btn-glow ch-btn-primary">
+          <i class="fa-solid fa-compass"></i> Explore Courses
+        </a>
+        <a href="enquiry.html?intent=student-guidance" class="btn ch-btn-secondary">
+          <i class="fa-solid fa-calendar-check"></i> Book Free Session
+        </a>
+      </div>
+
+      <!-- Feature highlights row -->
+      <div class="ch-stats">
+        <div class="ch-stat">
+          <div class="ch-stat-icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
+          <span class="ch-stat-label">Hands-On Projects</span>
+        </div>
+        <div class="ch-stat-divider"></div>
+        <div class="ch-stat">
+          <div class="ch-stat-icon-wrap"><i class="fa-solid fa-map-location-dot"></i></div>
+          <span class="ch-stat-label">Structured Roadmaps</span>
+        </div>
+        <div class="ch-stat-divider"></div>
+        <div class="ch-stat">
+          <div class="ch-stat-icon-wrap"><i class="fa-solid fa-user-tie"></i></div>
+          <span class="ch-stat-label">Expert Mentorship</span>
+        </div>
+        <div class="ch-stat-divider"></div>
+        <div class="ch-stat">
+          <div class="ch-stat-icon-wrap"><i class="fa-solid fa-calendar-check"></i></div>
+          <span class="ch-stat-label">Free First Session</span>
         </div>
       </div>
     </div>
-  </div>
+
+  </section>
 
   <!-- ═══════════════════════════════════════
        COURSES MAIN
   ═══════════════════════════════════════ -->
   <section class="section">
     <div class="container">
-
-      <!-- ── Free Guidance Banner for Students ───── -->
-      <div class="courses-guidance-banner reveal" id="guidance-banner">
-        <div class="courses-guidance-banner-content">
-          <span class="section-label" style="margin-bottom:6px;"><i class="fa-solid fa-compass"></i> Free Student Mentorship</span>
-          <h3>Need Help Choosing the Right Path?</h3>
-          <p>
-            Tell us your background and what you want to discuss. Get personalized advice on career roadmaps, course syllabus fit, and project requirements from an industry mentor in a free 30-minute call.
-          </p>
-        </div>
-        <div class="courses-guidance-banner-actions">
-          <a href="free-session.html?source=courses_top_banner" class="btn btn-primary" style="white-space:nowrap;">
-            Request Free Session &rarr;
-          </a>
-          <a href="https://wa.me/919892501878?text=Hi%20Scalension%2C%20I%20need%20guidance%20choosing%20the%20right%20course"
-            target="_blank" rel="noopener noreferrer" class="whatsapp-btn-green" style="white-space:nowrap;">
-            <i class="fa-brands fa-whatsapp"></i> Quick WhatsApp
-          </a>
-        </div>
-      </div>
 
       <!-- ── Category Filter Control ───────────────── -->
       <div class="category-filter-wrapper reveal">
@@ -161,7 +178,6 @@
         <div class="course-group-header">
           <span class="group-icon">🤖</span>
           <h2 class="group-title">AI &amp; Machine Learning</h2>
-          <span class="group-count">2 courses</span>
         </div>
 
         <div class="courses-stack">
@@ -197,10 +213,8 @@
               <div class="roadmap-inner">
                 <div class="roadmap-bar">
                   <span>Course Roadmap — 8 Modules</span>
-                  <div class="roadmap-bar-actions">
-                    <a href="free-session.html?course=ai-ml&source=course_card_ai_ml" class="free-guidance-course-btn" title="Free 1-on-1 session about AI & ML roadmap"><i class="fa-solid fa-compass"></i> Free 1-on-1 Guidance</a>
-                    <a href="enquiry.html" class="enquire-course-link">Enquire About This Course &rarr;</a>
-                  </div>
+                  <a href="enquiry.html?intent=course-enquiry" class="enquire-course-link">Enquire About This Course
+                    &rarr;</a>
                 </div>
 
                 <div class="modules-list">
@@ -343,10 +357,8 @@
               <div class="roadmap-inner">
                 <div class="roadmap-bar">
                   <span>Course Roadmap — 5 Modules</span>
-                  <div class="roadmap-bar-actions">
-                    <a href="free-session.html?course=prompt&source=course_card_prompt" class="free-guidance-course-btn" title="Free 1-on-1 session about GenAI & Prompt Engineering"><i class="fa-solid fa-compass"></i> Free 1-on-1 Guidance</a>
-                    <a href="enquiry.html" class="enquire-course-link">Enquire About This Course &rarr;</a>
-                  </div>
+                  <a href="enquiry.html?intent=course-enquiry" class="enquire-course-link">Enquire About This Course
+                    &rarr;</a>
                 </div>
 
                 <div class="modules-list">
@@ -437,7 +449,6 @@
         <div class="course-group-header">
           <span class="group-icon">🐍</span>
           <h2 class="group-title">Programming &amp; Data</h2>
-          <span class="group-count">1 course</span>
         </div>
 
         <div class="courses-stack">
@@ -469,10 +480,8 @@
               <div class="roadmap-inner">
                 <div class="roadmap-bar">
                   <span>Course Roadmap — 6 Modules</span>
-                  <div class="roadmap-bar-actions">
-                    <a href="free-session.html?course=python&source=course_card_python" class="free-guidance-course-btn" title="Free 1-on-1 session about Python & Data Science"><i class="fa-solid fa-compass"></i> Free 1-on-1 Guidance</a>
-                    <a href="enquiry.html" class="enquire-course-link">Enquire About This Course &rarr;</a>
-                  </div>
+                  <a href="enquiry.html?intent=course-enquiry" class="enquire-course-link">Enquire About This Course
+                    &rarr;</a>
                 </div>
 
                 <div class="modules-list">
@@ -577,7 +586,6 @@
         <div class="course-group-header">
           <span class="group-icon">🌐</span>
           <h2 class="group-title">Web Development</h2>
-          <span class="group-count">1 course</span>
         </div>
 
         <div class="courses-stack">
@@ -610,10 +618,8 @@
               <div class="roadmap-inner">
                 <div class="roadmap-bar">
                   <span>Course Roadmap — 10 Modules</span>
-                  <div class="roadmap-bar-actions">
-                    <a href="free-session.html?course=web-dev&source=course_card_web_dev" class="free-guidance-course-btn" title="Free 1-on-1 session about Full Stack roadmap"><i class="fa-solid fa-compass"></i> Free 1-on-1 Guidance</a>
-                    <a href="enquiry.html" class="enquire-course-link">Enquire About This Course &rarr;</a>
-                  </div>
+                  <a href="enquiry.html?intent=course-enquiry" class="enquire-course-link">Enquire About This Course
+                    &rarr;</a>
                 </div>
 
                 <div class="modules-list">
@@ -768,7 +774,6 @@
         <div class="course-group-header">
           <span class="group-icon">☁️</span>
           <h2 class="group-title">Cloud &amp; Infrastructure</h2>
-          <span class="group-count">2 courses</span>
         </div>
 
         <div class="courses-stack">
@@ -800,10 +805,8 @@
               <div class="roadmap-inner">
                 <div class="roadmap-bar">
                   <span>Course Roadmap — 7 Modules</span>
-                  <div class="roadmap-bar-actions">
-                    <a href="free-session.html?course=cloud&source=course_card_aws" class="free-guidance-course-btn" title="Free 1-on-1 session about AWS Cloud"><i class="fa-solid fa-compass"></i> Free 1-on-1 Guidance</a>
-                    <a href="enquiry.html" class="enquire-course-link">Enquire About This Course &rarr;</a>
-                  </div>
+                  <a href="enquiry.html?intent=course-enquiry" class="enquire-course-link">Enquire About This Course
+                    &rarr;</a>
                 </div>
 
                 <div class="modules-list">
@@ -935,10 +938,8 @@
               <div class="roadmap-inner">
                 <div class="roadmap-bar">
                   <span>Course Roadmap — 7 Modules</span>
-                  <div class="roadmap-bar-actions">
-                    <a href="free-session.html?course=cloud&agenda=OpenSearch%20and%20Search%20Engineering&source=course_card_opensearch" class="free-guidance-course-btn" title="Free 1-on-1 session about OpenSearch"><i class="fa-solid fa-compass"></i> Free 1-on-1 Guidance</a>
-                    <a href="enquiry.html" class="enquire-course-link">Enquire About This Course &rarr;</a>
-                  </div>
+                  <a href="enquiry.html?intent=course-enquiry" class="enquire-course-link">Enquire About This Course
+                    &rarr;</a>
                 </div>
 
                 <div class="modules-list">
@@ -1064,7 +1065,6 @@
         <div class="course-group-header">
           <span class="group-icon">⚙️</span>
           <h2 class="group-title">DevOps &amp; Automation</h2>
-          <span class="group-count">1 course</span>
         </div>
 
         <div class="courses-stack">
@@ -1097,10 +1097,8 @@
               <div class="roadmap-inner">
                 <div class="roadmap-bar">
                   <span>Course Roadmap — 8 Modules</span>
-                  <div class="roadmap-bar-actions">
-                    <a href="free-session.html?course=devops&source=course_card_devops" class="free-guidance-course-btn" title="Free 1-on-1 session about DevOps & CI/CD"><i class="fa-solid fa-compass"></i> Free 1-on-1 Guidance</a>
-                    <a href="enquiry.html" class="enquire-course-link">Enquire About This Course &rarr;</a>
-                  </div>
+                  <a href="enquiry.html?intent=course-enquiry" class="enquire-course-link">Enquire About This Course
+                    &rarr;</a>
                 </div>
 
                 <div class="modules-list">
@@ -1238,7 +1236,7 @@
       <p style="margin-bottom:32px; color:var(--text-muted); max-width:420px; margin-left:auto; margin-right:auto;">
         Drop us a message and we'll get back to you within 24 hours.
       </p>
-      <a href="enquiry.html" class="btn btn-primary">Send an Enquiry &rarr;</a>
+      <a href="enquiry.html?intent=course-enquiry" class="btn btn-primary">Send a Course Enquiry &rarr;</a>
     </div>
   </section>
 
@@ -1249,7 +1247,8 @@
     <div class="container text-center reveal">
       <span class="teaser-tag">Share Your Expertise</span>
       <h3>Are You an Expert? Teach with Scalension.</h3>
-      <p>We're looking for experienced professionals to create and deliver courses. Share your expertise with serious learners who are building real careers in tech.</p>
+      <p>We're looking for experienced professionals to create and deliver courses. Share your expertise with serious
+        learners who are building real careers in tech.</p>
       <a href="careers.html#teach" class="btn btn-outline" style="white-space:nowrap;">Apply to Teach &rarr;</a>
     </div>
   </section>
@@ -1265,11 +1264,14 @@
           <a href="index.html" class="logo">Scalen<span class="logo-accent">sion</span></a>
           <p class="footer-tagline">Expert-led courses and AI consultancy — built for the builders of tomorrow.</p>
           <div class="footer-social">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer"
+              aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank"
+              rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer"
+              aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
 
@@ -1278,7 +1280,6 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="courses.html">Courses</a></li>
-            <li><a href="free-session.html">Free Guidance Session</a></li>
             <li><a href="consultancy.html">Consultancy</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="enquiry.html">Enquiry</a></li>
@@ -1298,11 +1299,12 @@
         </div>
 
         <div class="footer-col">
-          <h4>Contact &amp; Guidance</h4>
+          <h4>Contact</h4>
           <ul>
-            <li><a href="free-session.html" style="color:var(--color-primary-lt); font-weight:600;">✨ Book Free Guidance</a></li>
             <li><a href="mailto:contact@scalension.com">contact@scalension.com</a></li>
-            <li><a href="https://wa.me/919892501878?text=Hi%20Scalension%2C%20I%20have%20an%20enquiry" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:4px;"></i> +91 98925 01878</a></li>
+            <li><a href="https://wa.me/919892501878?text=Hi%20Scalension%2C%20I%20have%20an%20enquiry" target="_blank"
+                rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:4px;"></i>
+                +91 98925 01878</a></li>
             <li><span style="color:var(--text-secondary);">📍 Mumbai, India</span></li>
           </ul>
         </div>

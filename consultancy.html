@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Technology Consultancy — Scalension</title>
-  <meta name="description" content="Scalension delivers full-cycle technology consultancy — from product discovery and UX design through software development, AI/ML, QA, DevOps, and ongoing support." />
+  <title>Software Development, AI &amp; Digital Marketing Services — Scalension</title>
+  <meta name="description"
+    content="Scalension helps businesses with product discovery, custom software development, AI and machine learning, cloud and DevOps, QA, ongoing support, and digital marketing." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script>
-    (function() {
+    (function () {
       const stored = localStorage.getItem('theme');
       if (stored) {
         document.documentElement.setAttribute('data-theme', stored);
@@ -21,61 +23,45 @@
     })();
   </script>
 </head>
+
 <body>
 
   <!-- ═══════════════════════════════════════
        NAVBAR
   ═══════════════════════════════════════ -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Primary navigation">
     <div class="container">
       <a href="index.html" class="logo">Scalen<span class="logo-accent">sion</span></a>
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
-        <li><a href="consultancy.html" class="active">Consultancy</a></li>
+        <li><a href="consultancy.html" class="active">Services</a></li>
         <li><a href="careers.html">Careers</a></li>
-        <li><a href="enquiry.html">Enquiry</a></li>
-        <li><a href="free-session.html" class="nav-free-session">Free Guidance <span class="nav-tag-free">FREE</span></a></li>
       </ul>
 
-      <div class="nav-social">
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+      <div class="nav-actions">
         <button type="button" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
           <i class="fa-solid fa-moon icon-moon"></i>
           <i class="fa-solid fa-sun icon-sun"></i>
         </button>
+        <a href="enquiry.html" class="nav-cta">Enquire</a>
       </div>
 
-      <button class="menu-toggle" aria-label="Open menu">&#9776;</button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"
+        aria-controls="mobile-navigation">&#9776;</button>
     </div>
   </nav>
 
   <!-- Mobile Drawer -->
   <div class="mobile-overlay"></div>
-  <nav class="mobile-nav">
-    <button class="mobile-nav-close">&#10005;</button>
+  <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
     <a href="index.html">Home</a>
     <a href="courses.html">Courses</a>
-    <a href="consultancy.html">Consultancy</a>
+    <a href="consultancy.html">Services</a>
     <a href="careers.html">Careers</a>
-    <a href="enquiry.html">Enquiry</a>
-    <a href="free-session.html" class="mobile-free-session">💡 Free Guidance Session <span class="nav-tag-free">FREE</span></a>
-    <div class="mobile-social">
-      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
-      <button type="button" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
-        <i class="fa-solid fa-moon icon-moon"></i>
-        <i class="fa-solid fa-sun icon-sun"></i>
-      </button>
-    </div>
+    <a href="enquiry.html" class="mobile-nav-cta">Enquire</a>
   </nav>
 
   <!-- ═══════════════════════════════════════
@@ -84,23 +70,93 @@
   <section class="hero-consult-v2">
     <div class="hero-consult-bg"></div>
     <div class="grid-bg"></div>
-    <div class="hero-orb" style="width:500px;height:500px;background:rgba(124,58,237,0.1);top:-120px;right:-100px;"></div>
-    <div class="hero-orb" style="width:320px;height:320px;background:rgba(6,182,212,0.08);bottom:-60px;left:-80px;animation-delay:-4s;"></div>
+    <div class="hero-orb" style="width:500px;height:500px;background:rgba(124,58,237,0.1);top:-120px;right:-100px;">
+    </div>
+    <div class="hero-orb"
+      style="width:320px;height:320px;background:rgba(6,182,212,0.08);bottom:-60px;left:-80px;animation-delay:-4s;">
+    </div>
 
     <div class="container">
-      <span class="hero-kicker">Technology &amp; AI Consultancy</span>
+      <span class="hero-kicker">Software, AI &amp; Digital Marketing Services</span>
       <h1>
-        Tell Us What<br>
-        <span class="gradient-text">You're Building.</span>
+        Build and grow<br>
+        <span class="gradient-text">your digital business.</span>
       </h1>
       <p class="hero-lead">
-        Whether it's a product that needs to exist, a system that needs to scale,
-        or an AI opportunity you're not sure how to act on — bring us the problem.
-        We'll figure out the right path together.
+        Scalension helps businesses plan and build software products, apply AI to practical workflows,
+        and grow their digital presence through digital marketing.
       </p>
       <div class="hero-cta">
-        <a href="enquiry.html" class="btn btn-primary">Start the Conversation &rarr;</a>
-        <a href="mailto:contact@scalension.com" class="btn btn-outline">contact@scalension.com</a>
+        <a href="enquiry.html?intent=software-consultation" class="btn btn-primary">Request a Free Consultation
+          &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Our Services</span>
+        <h2>Support for every stage of your digital work.</h2>
+        <p>From shaping an idea to improving a live product and reaching new customers.</p>
+      </div>
+
+      <div class="services-grid stagger-group">
+        <article class="service-card glass-card" id="product-discovery">
+          <i class="fa-solid fa-compass service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">Product Discovery</h3>
+          <p class="service-desc">Clarify user needs, product scope, and technical direction before development begins.
+          </p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=product-discovery" class="service-link">Discuss
+            product discovery &rarr;</a>
+        </article>
+        <article class="service-card glass-card" id="software-development">
+          <i class="fa-solid fa-code service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">Software Development</h3>
+          <p class="service-desc">Design and build custom software, web applications, and digital products around your
+            business needs.</p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=software-development" class="service-link">Discuss
+            software development &rarr;</a>
+        </article>
+        <article class="service-card glass-card" id="ai-ml-development">
+          <i class="fa-solid fa-brain service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">AI &amp; Machine Learning</h3>
+          <p class="service-desc">Identify practical AI opportunities and develop integrations, models, and data
+            workflows.</p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=ai-ml-development" class="service-link">Discuss AI
+            development &rarr;</a>
+        </article>
+        <article class="service-card glass-card" id="devops-cloud">
+          <i class="fa-solid fa-cloud service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">Cloud &amp; DevOps</h3>
+          <p class="service-desc">Build and improve cloud infrastructure, deployment pipelines, and operational
+            workflows.</p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=devops-cloud" class="service-link">Discuss cloud and
+            DevOps &rarr;</a>
+        </article>
+        <article class="service-card glass-card" id="qa-testing">
+          <i class="fa-solid fa-list-check service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">QA &amp; Testing</h3>
+          <p class="service-desc">Test application behavior and quality so teams can release changes with greater
+            confidence.</p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=qa-testing" class="service-link">Discuss QA and
+            testing &rarr;</a>
+        </article>
+        <article class="service-card glass-card" id="support-evolution">
+          <i class="fa-solid fa-arrows-rotate service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">Support &amp; Evolution</h3>
+          <p class="service-desc">Maintain, improve, and extend software as your products and business needs evolve.</p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=support-evolution" class="service-link">Discuss
+            ongoing support &rarr;</a>
+        </article>
+        <article class="service-card glass-card" id="digital-marketing">
+          <i class="fa-solid fa-chart-line service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">Digital Marketing</h3>
+          <p class="service-desc">Plan digital campaigns that improve online visibility and help your business reach
+            relevant audiences.</p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=digital-marketing" class="service-link">Discuss
+            digital marketing &rarr;</a>
+        </article>
       </div>
     </div>
   </section>
@@ -180,14 +236,16 @@
           We'll get back to you within 24 hours with an honest perspective,
           no commitment required.
         </p>
-        <a href="enquiry.html" class="btn btn-primary" style="font-size:1rem;padding:14px 36px;">
+        <a href="enquiry.html?intent=software-enquiry" class="btn btn-primary"
+          style="font-size:1rem;padding:14px 36px;">
           Tell Us About Your Project &rarr;
         </a>
         <div class="reach-out-contact">
           <a href="mailto:contact@scalension.com">
             <i class="fa-regular fa-envelope"></i> contact@scalension.com
           </a>
-          <a href="https://wa.me/919892501878?text=Hi%20Scalension%2C%20I%20have%20an%20enquiry" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/919892501878?text=Hi%20Scalension%2C%20I%20have%20an%20enquiry" target="_blank"
+            rel="noopener noreferrer">
             <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> +91 98925 01878
           </a>
           <span style="font-size:0.88rem;color:var(--text-muted);display:flex;align-items:center;gap:7px;">
@@ -209,9 +267,12 @@
         <div class="career-teaser-text">
           <span class="section-label" style="color:var(--color-accent-lt);">Join Our Team</span>
           <h3>A Developer or Engineer? Build with Scalension.</h3>
-          <p>Join our consultancy team and work on real products, AI systems, and challenging engineering problems. Remote-first, serious work.</p>
+          <p>Join our consultancy team and work on real products, AI systems, and challenging engineering problems.
+            Remote-first, serious work.</p>
         </div>
-        <a href="careers.html#build" class="btn btn-outline" style="white-space:nowrap;border-color:var(--color-accent-lt);color:var(--color-accent-lt);">Apply to Build &rarr;</a>
+        <a href="careers.html" class="btn btn-outline"
+          style="white-space:nowrap;border-color:var(--color-accent-lt);color:var(--color-accent-lt);">Apply to Build
+          &rarr;</a>
       </div>
     </div>
   </section>
@@ -227,11 +288,14 @@
           <a href="index.html" class="logo">Scalen<span class="logo-accent">sion</span></a>
           <p class="footer-tagline">Expert-led courses and AI consultancy — built for the builders of tomorrow.</p>
           <div class="footer-social">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer"
+              aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank"
+              rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer"
+              aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
 
@@ -240,7 +304,6 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="courses.html">Courses</a></li>
-            <li><a href="free-session.html">Free Guidance Session</a></li>
             <li><a href="consultancy.html">Consultancy</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="enquiry.html">Enquiry</a></li>
@@ -250,21 +313,23 @@
         <div class="footer-col">
           <h4>Consultancy</h4>
           <ul>
-            <li><a href="consultancy.html#services">Product Discovery</a></li>
-            <li><a href="consultancy.html#services">Software Development</a></li>
-            <li><a href="consultancy.html#services">AI &amp; ML Development</a></li>
-            <li><a href="consultancy.html#services">DevOps &amp; Cloud</a></li>
-            <li><a href="consultancy.html#services">QA &amp; Testing</a></li>
-            <li><a href="consultancy.html#services">Support &amp; Evolution</a></li>
+            <li><a href="consultancy.html#product-discovery">Product Discovery</a></li>
+            <li><a href="consultancy.html#software-development">Software Development</a></li>
+            <li><a href="consultancy.html#ai-ml-development">AI &amp; ML Development</a></li>
+            <li><a href="consultancy.html#devops-cloud">DevOps &amp; Cloud</a></li>
+            <li><a href="consultancy.html#qa-testing">QA &amp; Testing</a></li>
+            <li><a href="consultancy.html#support-evolution">Support &amp; Evolution</a></li>
+            <li><a href="consultancy.html#digital-marketing">Digital Marketing</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Contact &amp; Guidance</h4>
+          <h4>Contact</h4>
           <ul>
-            <li><a href="free-session.html" style="color:var(--color-primary-lt); font-weight:600;">✨ Book Free Guidance</a></li>
             <li><a href="mailto:contact@scalension.com">contact@scalension.com</a></li>
-            <li><a href="https://wa.me/919892501878?text=Hi%20Scalension%2C%20I%20have%20an%20enquiry" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:4px;"></i> +91 98925 01878</a></li>
+            <li><a href="https://wa.me/919892501878?text=Hi%20Scalension%2C%20I%20have%20an%20enquiry" target="_blank"
+                rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:4px;"></i>
+                +91 98925 01878</a></li>
             <li><span style="color:var(--text-secondary);">📍 Mumbai, India</span></li>
           </ul>
         </div>
@@ -280,4 +345,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scalension — Scale Your Skills. Shape the Future.</title>
+  <title>Scalension — Digital Services &amp; Technical Academy</title>
   <meta name="description"
-    content="Scalension offers expert-led technical courses in AI, software development, cloud, and DevOps — built for the next generation of builders." />
+    content="Scalension builds software and digital marketing solutions for businesses and offers practical technical education through its Academy." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -29,527 +29,278 @@
   <!-- ═══════════════════════════════════════
        NAVBAR
   ═══════════════════════════════════════ -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Primary navigation">
     <div class="container">
       <a href="index.html" class="logo">Scalen<span class="logo-accent">sion</span></a>
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="courses.html">Academy</a></li>
-        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="consultancy.html">Services</a></li>
         <li><a href="careers.html">Careers</a></li>
-        <li><a href="enquiry.html">Enquiry</a></li>
-        <li><a href="free-session.html" class="nav-free-session">Free Guidance <span class="nav-tag-free">FREE</span></a></li>
       </ul>
 
-      <div class="nav-social">
-        <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer"
-          aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-          title="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank"
-          rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer"
-          aria-label="WhatsApp Channel" title="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+      <div class="nav-actions">
         <button type="button" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
           <i class="fa-solid fa-moon icon-moon"></i>
           <i class="fa-solid fa-sun icon-sun"></i>
         </button>
+        <a href="enquiry.html" class="nav-cta">Enquire</a>
       </div>
 
-      <button class="menu-toggle" aria-label="Open menu">&#9776;</button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"
+        aria-controls="mobile-navigation">&#9776;</button>
     </div>
   </nav>
 
   <!-- Mobile Drawer -->
   <div class="mobile-overlay"></div>
-  <nav class="mobile-nav" aria-label="Mobile navigation">
+  <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
     <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
     <a href="index.html">Home</a>
-    <a href="courses.html">Academy</a>
-    <a href="consultancy.html">Consultancy</a>
+    <a href="courses.html">Courses</a>
+    <a href="consultancy.html">Services</a>
     <a href="careers.html">Careers</a>
-    <a href="enquiry.html">Enquiry</a>
-    <a href="free-session.html" class="mobile-free-session">💡 Free Guidance Session <span class="nav-tag-free">FREE</span></a>
-    <div class="mobile-social">
-      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer"
-        aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-          class="fa-brands fa-github"></i></a>
-      <a href="https://www.instagram.com/scalension_com?igsh=MTJ3d3ZqYjRnbWk2NQ" target="_blank"
-        rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://whatsapp.com/channel/0029Vb8EhJBGzzKJCfin2q10" target="_blank" rel="noopener noreferrer"
-        aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
-      <button type="button" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
-        <i class="fa-solid fa-moon icon-moon"></i>
-        <i class="fa-solid fa-sun icon-sun"></i>
-      </button>
-    </div>
+    <a href="enquiry.html" class="mobile-nav-cta">Enquire</a>
   </nav>
 
   <!-- ═══════════════════════════════════════
-       HERO BANNERS (Consultancy FIRST, Academy SECOND)
+       HERO BANNERS — Immersive Full-Width Carousel
   ═══════════════════════════════════════ -->
-  <section class="hero hero-slider-container">
+  <section class="hero hero-slider-container" id="hero-carousel">
     <div class="hero-bg"></div>
     <div class="grid-bg"></div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
 
-    <div class="container relative-z">
+    <!-- Animated floating particles -->
+    <div class="hero-particles" aria-hidden="true">
+      <span class="particle p1"></span>
+      <span class="particle p2"></span>
+      <span class="particle p3"></span>
+      <span class="particle p4"></span>
+      <span class="particle p5"></span>
+      <span class="particle p6"></span>
+    </div>
 
+    <div class="container relative-z">
       <div class="hero-slides-wrapper">
 
-        <!-- ─── BANNER 1: Software Consultancy & Products (FIRST) ─── -->
-        <div class="hero-slide active" id="slide-consultancy" data-index="0">
-          <div class="hero-grid">
-            <div class="hero-content">
-              <div class="hero-badge badge-cyan">
-                <i class="fa-solid fa-layer-group"></i> Software Consultancy &amp; Product Studio
-              </div>
+        <!-- ─── SLIDE 1: Software Consultancy ─── -->
+        <div class="hero-slide hero-slide-fw active" id="slide-consultancy" data-index="0">
+          <div class="hero-kicker-badge badge-cyan">
+            <span class="badge-pulse cyan"></span>
+            Software Consultancy &amp; Products
+          </div>
 
-              <h1 class="hero-title">We Build Software.<br><span class="gradient-text">We Launch Products.</span></h1>
+          <h1 class="hero-title-fw">
+            We Build Software<br>
+            <span class="gradient-text">That Scales.</span>
+          </h1>
 
-              <p class="hero-subtitle">
-                Engineering custom software solutions, AI architectures, and proprietary digital products that scale
-                your business.
-              </p>
+          <p class="hero-subtitle-fw">
+            End-to-end product engineering, AI integration, and cloud-native solutions — from idea to production.
+          </p>
 
-              <div class="hero-cta">
-                <a href="consultancy.html" class="btn btn-primary">Explore Consultancy &rarr;</a>
-                <a href="enquiry.html" class="btn btn-outline">Start a Project</a>
-              </div>
-            </div>
+          <div class="hero-pills">
+            <span class="hero-pill"><i class="fa-solid fa-code"></i> Custom Development</span>
+            <span class="hero-pill"><i class="fa-solid fa-brain"></i> AI &amp; ML</span>
+            <span class="hero-pill"><i class="fa-solid fa-cubes"></i> SaaS Products</span>
+            <span class="hero-pill"><i class="fa-solid fa-cloud"></i> Cloud Architecture</span>
+          </div>
 
-            <!-- Visual Graphic Card for Consultancy -->
-            <div class="hero-visual">
-              <div class="hero-card-v2 consultancy-card">
-                <div class="card-glow"></div>
-                <div class="v2-card-header">
-                  <span class="v2-badge"><i class="fa-solid fa-bolt"></i> Production-Grade Engineering</span>
-                </div>
-                <div class="v2-pillars">
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-code-branch"></i>
-                    <div>
-                      <strong>Custom Software Engineering</strong>
-                      <span>Full-stack web applications, microservices &amp; cloud</span>
-                    </div>
-                  </div>
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-brain"></i>
-                    <div>
-                      <strong>AI Systems &amp; Automation</strong>
-                      <span>LLMs, intelligent pipelines &amp; enterprise workflows</span>
-                    </div>
-                  </div>
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-cubes"></i>
-                    <div>
-                      <strong>In-House Digital Products</strong>
-                      <span>Proprietary SaaS platforms, frameworks &amp; developer tools</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="hero-cta-row">
+            <a href="enquiry.html?intent=software-consultation" class="btn btn-primary btn-glow">
+              <i class="fa-solid fa-comments"></i> Consult Us
+            </a>
+            <a href="consultancy.html" class="btn btn-outline">
+              Our Services <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
 
-        <!-- ─── BANNER 2: Technical Education & Academy (SECOND) ─── -->
-        <div class="hero-slide" id="slide-education" data-index="1">
-          <div class="hero-grid">
-            <div class="hero-content">
-              <div class="hero-badge badge-purple">
-                <i class="fa-solid fa-graduation-cap"></i> Technical Education &amp; Academy
-              </div>
+        <!-- ─── SLIDE 2: Scalension Academy ─── -->
+        <div class="hero-slide hero-slide-fw" id="slide-education" data-index="1">
+          <div class="hero-kicker-badge badge-purple">
+            <span class="badge-pulse purple"></span>
+            Scalension Academy
+          </div>
 
-              <h1 class="hero-title">Master Tech.<br><span class="gradient-text">Shape the Future.</span></h1>
+          <h1 class="hero-title-fw">
+            Learn From Practitioners.<br>
+            <span class="gradient-text">Build Real Projects.</span>
+          </h1>
 
-              <p class="hero-subtitle">
-                Expert-led academy programs in AI, Web Development, Cloud, and DevOps — built for tomorrow's engineering
-                leaders.
-              </p>
+          <p class="hero-subtitle-fw">
+            Industry-led programs in AI, Full-Stack, Cloud &amp; DevOps — with mentorship and capstone projects.
+          </p>
 
-              <div class="hero-cta">
-                <a href="courses.html" class="btn btn-primary">Browse Academy Programs &rarr;</a>
-                <a href="enquiry.html" class="btn btn-outline">Enquire Now</a>
-              </div>
-            </div>
+          <div class="hero-pills">
+            <span class="hero-pill"><i class="fa-solid fa-graduation-cap"></i> Expert-Led</span>
+            <span class="hero-pill"><i class="fa-solid fa-laptop-code"></i> Hands-On Labs</span>
+            <span class="hero-pill"><i class="fa-solid fa-certificate"></i> Certification</span>
+            <span class="hero-pill"><i class="fa-solid fa-user-check"></i> 1-on-1 Mentorship</span>
+          </div>
 
-            <!-- Visual Graphic Card for Academy -->
-            <div class="hero-visual">
-              <div class="hero-card-v2 academy-card">
-                <div class="card-glow purple"></div>
-                <div class="v2-card-header">
-                  <span class="v2-badge purple"><i class="fa-solid fa-award"></i> Practitioner Academy</span>
-                </div>
-                <div class="v2-academy-stats">
-                  <div class="acad-stat">
-                    <span class="stat-val">6+</span>
-                    <span class="stat-lbl">Core Programs</span>
-                  </div>
-                  <div class="acad-stat">
-                    <span class="stat-val">44+</span>
-                    <span class="stat-lbl">Modules</span>
-                  </div>
-                  <div class="acad-stat">
-                    <span class="stat-val">100%</span>
-                    <span class="stat-lbl">Project-Driven</span>
-                  </div>
-                </div>
-                <div class="v2-pillars">
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-robot"></i>
-                    <div>
-                      <strong>AI &amp; Machine Learning Track</strong>
-                      <span>Python, Neural Networks &amp; LLM deployments</span>
-                    </div>
-                  </div>
-                  <div class="v2-pillar-item">
-                    <i class="fa-solid fa-cloud"></i>
-                    <div>
-                      <strong>DevOps &amp; Cloud Infrastructure</strong>
-                      <span>AWS, Docker, Kubernetes &amp; CI/CD pipelines</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="hero-cta-row">
+            <a href="courses.html" class="btn btn-primary btn-glow">
+              <i class="fa-solid fa-compass"></i> Explore Courses
+            </a>
+            <a href="enquiry.html?intent=student-guidance" class="btn btn-outline">
+              <i class="fa-solid fa-calendar-check"></i> Book Free Session
+            </a>
           </div>
         </div>
 
       </div>
 
-      <!-- Clean Controls -->
-      <div class="hero-controls-v2">
-        <button class="nav-arrow prev-slide" aria-label="Previous Slide"><i class="fa-solid fa-arrow-left"></i></button>
-        <div class="slide-dots-v2">
-          <span class="dot-v2 active" data-slide="0"></span>
-          <span class="dot-v2" data-slide="1"></span>
+      <!-- Progress bar + navigation -->
+      <div class="hero-nav-bar">
+        <button class="hero-nav-arrow prev-slide" aria-label="Previous">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="hero-progress-track">
+          <div class="hero-progress-segment active" data-slide="0">
+            <span class="progress-fill"></span>
+          </div>
+          <div class="hero-progress-segment" data-slide="1">
+            <span class="progress-fill"></span>
+          </div>
         </div>
-        <button class="nav-arrow next-slide" aria-label="Next Slide"><i class="fa-solid fa-arrow-right"></i></button>
+
+        <button class="hero-nav-arrow next-slide" aria-label="Next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       STATS BAR
-  ═══════════════════════════════════════ -->
-  <div class="stats-bar">
-    <div class="container">
-      <div class="stats-grid stagger-group">
-        <div class="stat-item">
-          <div class="stat-number">6+</div>
-          <div class="stat-label">Courses Available</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">44</div>
-          <div class="stat-label">Structured Modules</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">5</div>
-          <div class="stat-label">Tech Domains</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Project-Driven</div>
+
+  <section class="section company-about-section" id="about">
+    <div class="container company-about-layout">
+      <div class="company-about-copy reveal">
+        <span class="section-label">About Scalension</span>
+        <h2>Technology for businesses. Practical skills for people.</h2>
+        <p>
+          Scalension helps businesses build software products and strengthen their digital presence through
+          development and digital marketing. Through Scalension Academy, we provide practical learning in
+          software development, AI, cloud, and DevOps.
+        </p>
+        <div class="company-vision">
+          <span class="section-label">Our Vision</span>
+          <p>Make useful digital technology and practical learning accessible to more people.</p>
         </div>
       </div>
+      <figure class="company-about-visual reveal">
+        <img src="assets/about-work.jpg" alt="Laptops and work materials arranged around a shared workspace" />
+        <figcaption>Ideas become digital experiences. Skills grow through practice.</figcaption>
+      </figure>
     </div>
-  </div>
+  </section>
+
+  <section class="section home-services-section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Our Services</span>
+        <h2>Digital solutions for your next stage.</h2>
+        <p>From building products to reaching customers, we help businesses make progress with technology.</p>
+      </div>
+
+      <div class="services-grid stagger-group">
+        <article class="service-card glass-card">
+          <i class="fa-solid fa-code service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">Software Development</h3>
+          <p class="service-desc">Web applications, platforms, and custom software shaped around your users and goals.
+          </p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=software-development" class="service-link">Discuss a
+            software project &rarr;</a>
+        </article>
+        <article class="service-card glass-card">
+          <i class="fa-solid fa-cubes service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">Digital Products &amp; AI</h3>
+          <p class="service-desc">Product planning, SaaS development, and practical AI integrations for real workflows.
+          </p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=software-product" class="service-link">Discuss a
+            digital product &rarr;</a>
+        </article>
+        <article class="service-card glass-card">
+          <i class="fa-solid fa-chart-line service-icon" aria-hidden="true"></i>
+          <h3 class="service-title">Digital Marketing</h3>
+          <p class="service-desc">Digital campaigns and growth support to help your organization reach relevant
+            audiences.</p>
+          <a href="enquiry.html?intent=software-enquiry&amp;service=digital-marketing" class="service-link">Discuss
+            digital marketing &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════
        FEATURED COURSES
   ═══════════════════════════════════════ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Courses</span>
-        <h2>Start With What Matters Most</h2>
-        <p>From AI fundamentals to DevOps mastery — every course comes with a structured roadmap.</p>
-      </div>
+  <div class="academy-section" id="academy">
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Scalension Academy</span>
+          <h2>Build skills for the work ahead.</h2>
+          <p>Explore practical technical learning in AI, software development, cloud, and DevOps.</p>
+        </div>
 
-      <div class="featured-grid stagger-group">
+        <div class="featured-grid stagger-group">
 
-        <!-- Card 1 -->
-        <div class="fc-card glass-card">
-          <div class="fc-icon">🤖</div>
-          <h3 class="fc-title">AI & Machine Learning Fundamentals</h3>
-          <p class="fc-desc">From data preprocessing to neural networks — a complete foundation for aspiring AI
-            engineers.</p>
-          <div class="fc-meta">
-            <span class="badge badge-beginner">Beginner</span>
-            <span class="badge badge-duration">12 weeks</span>
-            <span class="badge badge-modules">8 modules</span>
+          <!-- Card 1 -->
+          <div class="fc-card glass-card">
+            <div class="fc-icon">🤖</div>
+            <h3 class="fc-title">AI &amp; Machine Learning Fundamentals</h3>
+            <p class="fc-desc">From data preprocessing to neural networks — a complete foundation for aspiring AI
+              engineers.</p>
+            <div class="fc-meta">
+              <span class="badge badge-beginner">Beginner</span>
+              <span class="badge badge-duration">12 weeks</span>
+              <span class="badge badge-modules">8 modules</span>
+            </div>
+            <a href="courses.html#ai-ml" class="btn btn-sm btn-outline">View Roadmap &rarr;</a>
           </div>
-          <a href="courses.html#ai-ml" class="btn btn-sm btn-outline">View Roadmap &rarr;</a>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="fc-card glass-card">
-          <div class="fc-icon">🌐</div>
-          <h3 class="fc-title">Full Stack Web Development</h3>
-          <p class="fc-desc">HTML to deployment — React, Node.js, databases, auth, and production-grade CI/CD.</p>
-          <div class="fc-meta">
-            <span class="badge badge-intermediate">Intermediate</span>
-            <span class="badge badge-duration">16 weeks</span>
-            <span class="badge badge-modules">10 modules</span>
+          <!-- Card 2 -->
+          <div class="fc-card glass-card">
+            <div class="fc-icon">🌐</div>
+            <h3 class="fc-title">Full Stack Web Development</h3>
+            <p class="fc-desc">HTML to deployment — React, Node.js, databases, auth, and production-grade CI/CD.</p>
+            <div class="fc-meta">
+              <span class="badge badge-intermediate">Intermediate</span>
+              <span class="badge badge-duration">16 weeks</span>
+              <span class="badge badge-modules">10 modules</span>
+            </div>
+            <a href="courses.html#web-dev" class="btn btn-sm btn-outline">View Roadmap &rarr;</a>
           </div>
-          <a href="courses.html#web-dev" class="btn btn-sm btn-outline">View Roadmap &rarr;</a>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="fc-card glass-card">
-          <div class="fc-icon">⚙️</div>
-          <h3 class="fc-title">DevOps & CI/CD Pipelines</h3>
-          <p class="fc-desc">Docker, Kubernetes, GitHub Actions, Terraform — the full DevOps lifecycle from scratch.</p>
-          <div class="fc-meta">
-            <span class="badge badge-advanced">Advanced</span>
-            <span class="badge badge-duration">12 weeks</span>
-            <span class="badge badge-modules">8 modules</span>
+          <!-- Card 3 -->
+          <div class="fc-card glass-card">
+            <div class="fc-icon">⚙️</div>
+            <h3 class="fc-title">DevOps &amp; CI/CD Pipelines</h3>
+            <p class="fc-desc">Docker, Kubernetes, GitHub Actions, Terraform — the full DevOps lifecycle from scratch.
+            </p>
+            <div class="fc-meta">
+              <span class="badge badge-advanced">Advanced</span>
+              <span class="badge badge-duration">12 weeks</span>
+              <span class="badge badge-modules">8 modules</span>
+            </div>
+            <a href="courses.html#devops" class="btn btn-sm btn-outline">View Roadmap &rarr;</a>
           </div>
-          <a href="courses.html#devops" class="btn btn-sm btn-outline">View Roadmap &rarr;</a>
+
         </div>
 
-      </div>
-
-      <div style="text-align:center; margin-top: 40px;">
-        <a href="courses.html" class="btn btn-primary">View All Courses &rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       LEARNING TRACKS
-  ═══════════════════════════════════════ -->
-  <section class="section"
-    style="background: rgba(124,58,237,0.03); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Learning Paths</span>
-        <h2>Curated Tracks to Guide Your Journey</h2>
-        <p>Not sure where to start? Follow a recommended sequence designed for real outcomes.</p>
-      </div>
-
-      <div class="tracks-grid stagger-group">
-
-        <!-- Track 1 -->
-        <div class="track-card glass-card">
-          <div class="track-icon">🧠</div>
-          <h3 class="track-title">AI Engineer</h3>
-          <p class="track-subtitle">From Python basics to deploying real ML models</p>
-          <div class="track-steps">
-            <div class="track-step">
-              <div class="step-dot">01</div>
-              <div class="step-body">
-                <h5>Python for Data Science</h5>
-                <p>NumPy, Pandas, visualization</p>
-              </div>
-            </div>
-            <div class="track-step">
-              <div class="step-dot">02</div>
-              <div class="step-body">
-                <h5>AI & ML Fundamentals</h5>
-                <p>Algorithms, model training, evaluation</p>
-              </div>
-            </div>
-            <div class="track-step">
-              <div class="step-dot">03</div>
-              <div class="step-body">
-                <h5>Prompt Engineering & AI Tools</h5>
-                <p>LLMs, RAG, automation workflows</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Track 2 -->
-        <div class="track-card glass-card">
-          <div class="track-icon">🌐</div>
-          <h3 class="track-title">Full Stack Developer</h3>
-          <p class="track-subtitle">Frontend to backend to production deployment</p>
-          <div class="track-steps">
-            <div class="track-step">
-              <div class="step-dot">01</div>
-              <div class="step-body">
-                <h5>Full Stack Web Development</h5>
-                <p>React, Node.js, databases, auth</p>
-              </div>
-            </div>
-            <div class="track-step">
-              <div class="step-dot">02</div>
-              <div class="step-body">
-                <h5>Cloud Computing with AWS</h5>
-                <p>EC2, S3, serverless, networking</p>
-              </div>
-            </div>
-            <div class="track-step">
-              <div class="step-dot">03</div>
-              <div class="step-body">
-                <h5>DevOps & CI/CD</h5>
-                <p>Docker, GitHub Actions, Kubernetes</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Track 3 -->
-        <div class="track-card glass-card">
-          <div class="track-icon">☁️</div>
-          <h3 class="track-title">DevOps Engineer</h3>
-          <p class="track-subtitle">Infrastructure, automation, and scale</p>
-          <div class="track-steps">
-            <div class="track-step">
-              <div class="step-dot">01</div>
-              <div class="step-body">
-                <h5>Cloud Computing with AWS</h5>
-                <p>Core services, IAM, networking</p>
-              </div>
-            </div>
-            <div class="track-step">
-              <div class="step-dot">02</div>
-              <div class="step-body">
-                <h5>DevOps & CI/CD Pipelines</h5>
-                <p>Terraform, Docker, Kubernetes</p>
-              </div>
-            </div>
-            <div class="track-step">
-              <div class="step-dot">03</div>
-              <div class="step-body">
-                <h5>Monitoring & Observability</h5>
-                <p>Prometheus, Grafana, ELK Stack</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       WHY SCALENSION
-       ================================================== -->
-  <section class="section why-section" id="why">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-label">Why Scalension</span>
-        <h2>Built Differently, by Practitioners</h2>
-        <p>We teach what we actively build — no outdated slides, no fluff.</p>
-      </div>
-
-      <div class="why-grid stagger-group">
-        <div class="why-card glass-card">
-          <div class="why-icon">🗺️</div>
-          <h4 class="why-title">Structured Roadmaps</h4>
-          <p class="why-text">Every course ships with a module-by-module index so you always know exactly where you are
-            and what's next.</p>
-        </div>
-        <div class="why-card glass-card">
-          <div class="why-icon">🛠️</div>
-          <h4 class="why-title">Real-World Projects</h4>
-          <p class="why-text">Capstone projects on actual datasets and real use cases — not contrived homework that
-            stays on your laptop.</p>
-        </div>
-        <div class="why-card glass-card">
-          <div class="why-icon">🎯</div>
-          <h4 class="why-title">Industry-Relevant</h4>
-          <p class="why-text">Curriculum built by professionals who solve these problems daily for enterprise clients.
-          </p>
-        </div>
-        <div class="why-card glass-card">
-          <div class="why-icon">🤝</div>
-          <h4 class="why-title">Ongoing Support</h4>
-          <p class="why-text">Community access, Q&A sessions, and guidance — because learning doesn't end with the last
-            module.</p>
+        <div style="text-align:center; margin-top: 40px;">
+          <a href="courses.html" class="btn btn-primary">View All Courses &rarr;</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════
-       TESTIMONIALS
-  ═══════════════════════════════════════ -->
-  <section class="section"
-    style="background: rgba(124,58,237,0.03); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Reviews</span>
-        <h2>What Learners Say</h2>
-      </div>
-
-      <div class="testi-grid stagger-group">
-        <div class="testi-card glass-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"The AI & ML course roadmap is the best I've seen. Each module builds naturally on the
-            last — I went from zero to deploying a real model in 12 weeks."</p>
-          <div class="testi-author">
-            <div class="author-avatar">AR</div>
-            <div>
-              <div class="author-name">Ahmad Raza</div>
-              <div class="author-role">Data Analyst → ML Engineer</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card glass-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"Scalension's Full Stack course is brutally practical. I landed my first dev role before
-            even finishing module 9. The project-first approach makes all the difference."</p>
-          <div class="testi-author">
-            <div class="author-avatar">SF</div>
-            <div>
-              <div class="author-name">Sara Farooq</div>
-              <div class="author-role">Freelancer → Junior Dev</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card glass-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"The DevOps curriculum covers everything you need for a real engineering role.
-            Kubernetes, CI/CD, Terraform — it's all there with actual context on when and why to use it."</p>
-          <div class="testi-author">
-            <div class="author-avatar">ZK</div>
-            <div>
-              <div class="author-name">Zain Khan</div>
-              <div class="author-role">Sysadmin → DevOps Engineer</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       FREE GUIDANCE BANNER
-  ═══════════════════════════════════════ -->
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="courses-guidance-banner reveal" style="margin-bottom:0;">
-        <div class="courses-guidance-banner-content">
-          <span class="section-label" style="margin-bottom:6px;"><i class="fa-solid fa-compass"></i> Free 1-on-1 Guidance</span>
-          <h3>Confused About Which Tech Domain To Pick?</h3>
-          <p>
-            Whether you are deciding between AI/ML, Full-Stack, or Cloud, or preparing for placements — schedule a 30-minute 1-on-1 call with an industry mentor. Define your agenda and leave with a clear roadmap.
-          </p>
-        </div>
-        <div class="courses-guidance-banner-actions">
-          <a href="free-session.html?source=home_guidance_banner" class="btn btn-primary" style="white-space:nowrap;">
-            Book Free Guidance Call &rarr;
-          </a>
-          <a href="https://wa.me/919892501878?text=Hi%20Scalension%2C%20I%20would%20like%20to%20request%20a%20free%201-on-1%20guidance%20session"
-            target="_blank" rel="noopener noreferrer" class="whatsapp-btn-green" style="white-space:nowrap;">
-            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div><!-- /academy-section -->
 
   <!-- ═══════════════════════════════════════
        DUAL CTA
@@ -564,9 +315,8 @@
         </div>
         <div class="cta-panel cta-consult">
           <h3>Building a Product or Scaling a Team?</h3>
-          <p>Full-cycle technology consultancy — product discovery, software development, AI integration, DevOps, and
-            beyond.</p>
-          <a href="consultancy.html" class="btn btn-outline">See Consultancy &rarr;</a>
+          <p>Software development, digital products, AI solutions, and digital marketing for businesses.</p>
+          <a href="consultancy.html" class="btn btn-outline">Explore Services &rarr;</a>
         </div>
       </div>
     </div>
@@ -581,9 +331,8 @@
 
         <div class="footer-brand">
           <a href="index.html" class="logo">Scalen<span class="logo-accent">sion</span></a>
-          <p class="footer-tagline">Expert-led courses and AI consultancy — built for the builders of tomorrow.</p>
+          <p class="footer-tagline">Digital services for businesses and practical technology education for learners.</p>
           <div class="footer-social">
-            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.youtube.com/channel/UCDNR9oUo0z2bHbTvsrr0TBA" target="_blank" rel="noopener noreferrer"
               aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
             <a href="https://github.com/scalension" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
@@ -600,7 +349,6 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="courses.html">Courses</a></li>
-            <li><a href="free-session.html">Free Guidance Session</a></li>
             <li><a href="consultancy.html">Consultancy</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="enquiry.html">Enquiry</a></li>
@@ -620,9 +368,8 @@
         </div>
 
         <div class="footer-col">
-          <h4>Contact &amp; Guidance</h4>
+          <h4>Contact</h4>
           <ul>
-            <li><a href="free-session.html" style="color:var(--color-primary-lt); font-weight:600;">✨ Book Free Guidance</a></li>
             <li><a href="mailto:contact@scalension.com">contact@scalension.com</a></li>
             <li><a href="https://wa.me/919892501878?text=Hi%20Scalension%2C%20I%20have%20an%20enquiry" target="_blank"
                 rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:4px;"></i>
